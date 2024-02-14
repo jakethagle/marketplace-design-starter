@@ -1,8 +1,8 @@
 import IntegrationTable from "@/components/example/integration-table";
+import ExamplePageHeader from "@/components/example/page-header";
 import type { TabProp } from "@/components/example/tabs";
 import ExamplePageTabs from "@/components/example/tabs";
 import LoadingSpinner from "@/components/loading-spinner";
-import Marketplace from "@/prismatic/components/embedded-marketplace";
 import { prismaticMarketplace } from "@/prismatic/lib";
 import type { Instance } from "@repo/prismatic-js";
 import { Suspense } from "react";
@@ -15,6 +15,7 @@ export interface Record {
   message: string;
   isCurrent: boolean;
 }
+
 export function getRecords(): Record[] {
   return [
     {
@@ -37,7 +38,7 @@ export function getRecords(): Record[] {
 }
 async function getMarketplaceIntegration(
   integration: string,
-): Promise<{ nodes?: Instance[] }> {
+): Promise<{ nodes?: Instance[] } | undefined> {
   const { client } = await prismaticMarketplace();
   const {
     marketplaceIntegrations: { nodes },
@@ -64,7 +65,7 @@ async function getMarketplaceIntegration(
       },
     },
   });
-  return nodes[0]?.instances as unknown as { nodes: Instance[] };
+  return nodes[0]?.instances as unknown as { nodes?: Instance[] } | undefined;
 }
 
 export default async function ExamplePage({
@@ -73,35 +74,35 @@ export default async function ExamplePage({
   searchParams: { integration: string | undefined };
 }) {
   const integration = searchParams.integration || "Salesforce";
-  const { nodes } = await getMarketplaceIntegration(integration);
+  const response = await getMarketplaceIntegration(integration);
+
+  let instance: Instance | undefined;
+  if (response?.nodes) {
+    instance = response.nodes[0];
+  }
   const records = getRecords();
-  if (!nodes) {
-    return null;
+  if (!instance) {
+    return <LoadingSpinner />;
   }
   const _tabs: TabProp[] = [
     {
-      panel: (
-        <div className="h-full pt-8">
-          <Marketplace mode="Integration" />
-        </div>
-      ),
-      label: "Configuration",
-      key: "configuration",
+      panel: <IntegrationTable instance={instance} records={records} />,
+      label: "Import/Export",
+      key: "import-export",
     },
     {
       panel: <div>Field Mappings</div>,
       label: "Field Mappings",
       key: "field-mappings",
     },
-    {
-      panel: <IntegrationTable instance={nodes[0]} records={records} />,
-      label: "Import/Export",
-      key: "import-export",
-    },
   ];
 
   return (
     <Suspense fallback={<LoadingSpinner />}>
+      <div className="pb-10">
+        <ExamplePageHeader integration={integration} />
+      </div>
+      {/* <h2 */}
       <ExamplePageTabs tabs={_tabs} />
     </Suspense>
   );

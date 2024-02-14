@@ -1,4 +1,3 @@
-import LayoutWrapper from "@/components/layout-wrapper";
 import { MarketplaceGrid } from "@/components/marketplace/grid";
 import Marketplace from "@/prismatic/components/embedded-marketplace";
 import { getMarketplaceIntegrations } from "@/prismatic/lib";
@@ -36,13 +35,11 @@ export default async function CustomMarketplace({
     }
   }
   return searchParams.custom === "true" ? (
-    <LayoutWrapper>
-      <MarketplaceGrid
-        categories={categories}
-        filters={filters}
-        listings={marketplaceIntegrations.nodes}
-      />
-    </LayoutWrapper>
+    <MarketplaceGrid
+      categories={categories}
+      filters={filters}
+      listings={marketplaceIntegrations.nodes}
+    />
   ) : (
     <div className="h-full">
       <Marketplace mode="Marketplace" />

@@ -10,8 +10,8 @@ export default function Banner(): React.ReactElement {
   return (
     <div
       className={classNames(
-        "flex items-center gap-x-6 bg-accent text-accent-foreground px-6 py-1 sm:px-3.5 sm:before:flex-1",
-        !show ? "hidden" : ""
+        "flex items-center gap-x-6 bg-accent text-accent-foreground px-6 py-1 sm:px-3.5 sm:before:flex-1 h-10",
+        !show ? "hidden" : "",
       )}
     >
       <div className="text-sm leading-6 text-secondary-foreground w-full">

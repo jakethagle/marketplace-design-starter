@@ -4,10 +4,24 @@ An example starter repo for creating an integration marketplace
 
 ## Using this example
 
-Run the following command:
+Run the following commands:
+
+- Install dependencies
+
+```
+pnpm i
+```
+
+- Run Prismatic Setup
 
 ```sh
-pnpm i && pnpm dev
+cd apps/web && ./setup.sh
+```
+
+- Start the project
+
+```sh
+pnpm dev
 ```
 
 ## What's inside?

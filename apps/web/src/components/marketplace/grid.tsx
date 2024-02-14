@@ -275,7 +275,7 @@ export function MarketplaceGrid({
 }: MarketplaceGridProps): React.ReactNode {
   return (
     <>
-      <div className="flex items-end justify-between border-b pb-6">
+      <div className="flex items-end justify-between border-b pb-6 pt-6">
         <MarketplaceHeader />
         <GridActions />
       </div>

@@ -17,7 +17,7 @@ export interface PrismaticConfig {
   /** External ID of the user (often the same as sub) */
   external_id?: string;
 
-  /** Name of the user */
+  /** Name of the organization */
   name?: string;
 
   /** Signing key for signing JWT access tokens */

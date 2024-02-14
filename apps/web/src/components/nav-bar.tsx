@@ -44,14 +44,14 @@ export function CustomToggle(): React.ReactNode {
         aria-hidden="true"
         className={classNames(
           enabled ? "bg-primary" : "bg-muted-foreground",
-          "pointer-events-none absolute mx-auto h-4 w-9 rounded-full transition-colors duration-200 ease-in-out"
+          "pointer-events-none absolute mx-auto h-4 w-9 rounded-full transition-colors duration-200 ease-in-out",
         )}
       />
       <span
         aria-hidden="true"
         className={classNames(
           enabled ? "translate-x-5" : "translate-x-0",
-          "pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out"
+          "pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out",
         )}
       />
     </Switch>
@@ -61,7 +61,7 @@ export default function Navbar(): React.ReactNode {
   const activeSegment = useSelectedLayoutSegment();
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2 ">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2 h-14">
       <div className="flex justify-between">
         <div className="flex">
           <div className="hidden sm:flex flex-row items-center">
