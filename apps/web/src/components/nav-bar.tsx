@@ -13,10 +13,14 @@ import { classNames } from "../lib/utils";
 import prismaticConfig from "../prismatic/constants/config";
 
 const navigation = [
-  { name: "Home", href: "/", segment: null },
-  { name: "Marketplace", href: "/marketplace", segment: "marketplace" },
-  { name: "Designer", href: "/designer", segment: "designer" },
-  { name: "Example", href: "/example", segment: "example" },
+  { name: "Dashboard", href: "/dashboard", segment: null },
+  {
+    name: "Marketplace",
+    href: "/dashboard/marketplace",
+    segment: "marketplace",
+  },
+  { name: "Designer", href: "/dashboard/designer", segment: "designer" },
+  { name: "Example", href: "/dashboard/example", segment: "example" },
 ];
 
 export function CustomToggle(): React.ReactNode {
@@ -65,9 +69,11 @@ export default function Navbar(): React.ReactNode {
       <div className="flex justify-between">
         <div className="flex">
           <div className="hidden sm:flex flex-row items-center">
-            <h3 className="text-xl font-bold leading-7 tracking-tight text-end">
-              {prismaticConfig.name}
-            </h3>
+            <Link href="/">
+              <h3 className="text-xl font-bold leading-7 tracking-tight text-end">
+                {prismaticConfig.name?.replaceAll("Demo", "")}
+              </h3>
+            </Link>
           </div>
           <div className="sm:ml-6 sm:block">
             <div className="flex space-x-4">
@@ -89,6 +95,17 @@ export default function Navbar(): React.ReactNode {
         </div>
         <div className="ml-12 flex flex-row justify-end items-center">
           <CustomToggle />
+          <div>
+            <Link href="/login">
+              <Button
+                className="ml-12 bg-opacity-70"
+                size="default"
+                variant="outline"
+              >
+                Login
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

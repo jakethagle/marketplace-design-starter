@@ -4,7 +4,7 @@ import { classNames } from "@/lib/utils";
 import type { Instance } from "@repo/prismatic-js";
 import { Button } from "@repo/ui";
 import React from "react";
-import type { Record } from "../../app/example/page";
+import type { Record } from "../../app/dashboard/example/page";
 
 export default function IntegrationTable({
   records,

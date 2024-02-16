@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Banner from "../components/banner";
-import Navbar from "../components/nav-bar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -21,11 +19,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="h-full font-sans antialiased">
-        <nav className="h-24 border-b border-border">
+        {children}
+        {/* <nav className="h-24 border-b border-border">
           <Banner />
           <Navbar />
         </nav>
-        <main className="h-[calc(100%_-_6rem)]">{children}</main>
+        <main className="h-[calc(100%_-_6rem)]">{children}</main> */}
       </body>
     </html>
   );

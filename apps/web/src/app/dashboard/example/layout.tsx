@@ -5,5 +5,5 @@ export default function Layout({
 }: {
   children: React.ReactNode;
 }): React.ReactNode {
-  return <LayoutWrapper className="h-full">{children}</LayoutWrapper>;
+  return <LayoutWrapper className="h-full py-6">{children}</LayoutWrapper>;
 }

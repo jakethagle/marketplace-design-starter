@@ -1,15 +1,15 @@
 "use client";
 
-export default function BaseSVG() {
+export default function HeroImage() {
   return (
     <svg
-      className="object-top bg-background rounded-lg"
+      className="object-center bg-background bg-opacity-0 rounded-lg"
       fill=""
-      viewBox="0 0 1150 1150"
+      viewBox="100 80 900 900"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_287_1219)">
-        <rect className="fill-background" height="1150" rx="200" width="1150" />
+        <rect className="fill-background bg-background" />
         <path
           d="M914.2 510C914.2 514.5 914.1 519 913.8 523.2C956.8 555.9 989.9 626 989.9 687.7C989.9 754.9 950.6 786.6 902.1 758.6C902 758.5 901.9 758.5 901.8 758.4L597.1 582.7C597 582.6 596.9 582.6 596.7 582.5C542.2 551 498 464.3 498 388.8C498 318.1 536.8 282.2 586.5 303.9C592.6 255.4 625.1 234.5 664.3 257.2C683.1 268.1 700.4 287.2 713.9 310.2C733.5 281.1 766.9 273.7 804.7 295.5C865.2 330.3 914.2 426.4 914.2 510Z"
           fill="url(#paint0_linear_287_1219)"
