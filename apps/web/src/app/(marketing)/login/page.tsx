@@ -69,7 +69,7 @@ export default function LoginPage() {
                 <div className="text-sm">
                   <a
                     className="font-semibold text-primary hover:text-primary"
-                    href="#"
+                    href="/#"
                   >
                     Forgot password?
                   </a>
@@ -88,7 +88,7 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <Link href="/dashboard">
+              <Link href="/">
                 <button
                   className="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                   type="submit"
@@ -103,7 +103,7 @@ export default function LoginPage() {
             Not a member?{" "}
             <a
               className="font-semibold leading-6 text-primary hover:text-primary"
-              href="#"
+              href="/#"
             >
               Start a 14 day free trial
             </a>

@@ -13,14 +13,14 @@ import { classNames } from "../lib/utils";
 import prismaticConfig from "../prismatic/constants/config";
 
 const navigation = [
-  { name: "Dashboard", href: "/dashboard", segment: null },
+  { name: "Dashboard", href: "/", segment: null },
   {
     name: "Marketplace",
-    href: "/dashboard/marketplace",
+    href: "/marketplace",
     segment: "marketplace",
   },
-  { name: "Designer", href: "/dashboard/designer", segment: "designer" },
-  { name: "Example", href: "/dashboard/example", segment: "example" },
+  { name: "Designer", href: "/designer", segment: "designer" },
+  { name: "Example", href: "/example", segment: "example" },
 ];
 
 export function CustomToggle(): React.ReactNode {
@@ -69,7 +69,7 @@ export default function Navbar(): React.ReactNode {
       <div className="flex justify-between">
         <div className="flex">
           <div className="hidden sm:flex flex-row items-center">
-            <Link href="/">
+            <Link href="/website">
               <h3 className="text-xl font-bold leading-7 tracking-tight text-end">
                 {prismaticConfig.name?.replaceAll("Demo", "")}
               </h3>

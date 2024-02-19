@@ -18,14 +18,7 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
     >
-      <body className="h-full font-sans antialiased">
-        {children}
-        {/* <nav className="h-24 border-b border-border">
-          <Banner />
-          <Navbar />
-        </nav>
-        <main className="h-[calc(100%_-_6rem)]">{children}</main> */}
-      </body>
+      <body className="h-full font-sans antialiased">{children}</body>
     </html>
   );
 }
