@@ -1,8 +1,9 @@
+import Navbar from "@/components/nav-bar";
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "Marketplace Design System Starter",
+  title: "Application",
   description: "",
 };
 
@@ -19,12 +20,10 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="h-full font-sans antialiased">
-        {children}
-        {/* <nav className="h-24 border-b border-border">
-          <Banner />
+        <nav className="border-b border-border">
           <Navbar />
         </nav>
-        <main className="h-[calc(100%_-_6rem)]">{children}</main> */}
+        <main className="h-[calc(100%_-_6rem)]">{children}</main>
       </body>
     </html>
   );
