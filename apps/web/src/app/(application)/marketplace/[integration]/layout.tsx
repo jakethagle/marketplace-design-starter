@@ -1,5 +1,5 @@
-import BreadcrumbNav from "@/components/breadcrumb-nav";
-import LayoutWrapper from "@/components/layout-wrapper";
+import BreadcrumbNav from "@/components/application/marketplace/breadcrumb-nav";
+import Container from "@/components/common/container";
 
 export default function Layout({
   children,
@@ -7,11 +7,11 @@ export default function Layout({
   children: React.ReactNode;
 }): React.ReactNode {
   return (
-    <LayoutWrapper>
+    <Container>
       <div className="pb-6">
         <BreadcrumbNav slug="salesforce" />
       </div>
       {children}
-    </LayoutWrapper>
+    </Container>
   );
 }

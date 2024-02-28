@@ -1,5 +1,3 @@
-// import useSWR from "swr";
-// import axios from "axios";
 import prismatic from "@prismatic-io/embedded";
 import { useEffect, useState } from "react";
 

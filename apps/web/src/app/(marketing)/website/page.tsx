@@ -1,15 +1,14 @@
-import HeroPage from "@/components/hero-page";
-import Layout from "@/components/landing/nav";
-import LayoutWrapper from "@/components/layout-wrapper";
-import LogoCloud from "@/components/logo-cloud";
+import Container from "@/components/common/container";
+import HeroSection from "@/components/marketing/hero-section";
+import LogoCloud from "@/components/marketing/logo-cloud";
 
 export default function Page(): React.ReactElement {
   return (
-    <Layout>
-      <HeroPage />
-      <LayoutWrapper>
+    <>
+      <HeroSection />
+      <Container>
         <LogoCloud />
-      </LayoutWrapper>
-    </Layout>
+      </Container>
+    </>
   );
 }

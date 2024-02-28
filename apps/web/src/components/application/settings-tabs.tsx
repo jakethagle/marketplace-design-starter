@@ -1,19 +1,18 @@
 "use client";
 import { Tab } from "@headlessui/react";
-import { IntegrationTable } from "@repo/ui";
-import { Fragment } from "react";
-import { classNames } from "../lib/utils";
-import Marketplace from "../prismatic/components/embedded-marketplace";
+import React, { Fragment } from "react";
+import { classNames } from "../../lib/utils";
+import Marketplace from "../../prismatic/components/embedded-marketplace";
 
-function tabStyle(selected: boolean) {
+function tabStyle(selected: boolean): string {
   return classNames(
     selected
       ? "border-primary text-primary"
       : "border-transparent  hover:border-muted-foreground",
-    "whitespace-nowrap border-b-2 py-4 text-sm font-medium outline-none transition-colors"
+    "whitespace-nowrap border-b-2 py-4 text-sm font-medium outline-none transition-colors",
   );
 }
-export default function SettingsTabs() {
+export default function SettingsTabs(): React.ReactNode {
   return (
     <div className=" w-full h-full lg:col-span-4 lg:mt-0">
       <Tab.Group as="div">
@@ -58,7 +57,7 @@ export default function SettingsTabs() {
             className="text-sm text-muted-foreground"
             key="import-export"
           >
-            <IntegrationTable />
+            {/* <IntegrationTable instance={undefined} records={[]} /> */}
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

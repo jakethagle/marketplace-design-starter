@@ -25,17 +25,16 @@ export default function Marketplace({
     if (authenticated && mode === "Marketplace") {
       prismatic.showMarketplace({
         theme: "LIGHT",
-        selector: "#prismatic-embedded-marketplace",
+        selector: "#prismatic-embedded",
         screenConfiguration: {
           initializing: {
             background: "#FFFFFF",
             color: "#000000",
           },
-          configurationWizard: {},
-          instance: {
-            hideBackToMarketplace: true,
-          },
           marketplace: { configuration: "allow-details" },
+          configurationWizard: {
+            triggerDetailsConfiguration: "hidden",
+          },
         },
       });
       setInitialized(true);
@@ -46,7 +45,7 @@ export default function Marketplace({
       prismatic.configureIntegration({
         integrationName: integration,
         theme: "LIGHT",
-        selector: "#prismatic-embedded-marketplace",
+        selector: "#prismatic-embedded",
         screenConfiguration: {
           initializing: {
             background: "#FFFFFF",
@@ -55,7 +54,30 @@ export default function Marketplace({
           instance: {
             hideBackToMarketplace: true,
           },
-          marketplace: { configuration: "allow-details" },
+        },
+      });
+      setInitialized(true);
+    } else if (authenticated && mode === "Designer") {
+      prismatic.showIntegrations({
+        theme: "LIGHT",
+        selector: "#prismatic-embedded",
+        screenConfiguration: {
+          initializing: {
+            background: "#FFFFFF",
+            color: "#000000",
+          },
+        },
+      });
+      setInitialized(true);
+    } else if (authenticated && mode === "Dashboard") {
+      prismatic.showDashboard({
+        theme: "LIGHT",
+        selector: "#prismatic-embedded",
+        screenConfiguration: {
+          initializing: {
+            background: "#FFFFFF",
+            color: "#000000",
+          },
         },
       });
       setInitialized(true);
@@ -64,5 +86,5 @@ export default function Marketplace({
     }
   }, [authenticated, mode, integration, initialized]);
 
-  return <div className="h-full" id="prismatic-embedded-marketplace" />;
+  return <div className="h-full" id="prismatic-embedded" />;
 }

@@ -36,8 +36,6 @@ const product = {
     "Customizable and scalable",
   ],
   imageSrc: "/salesforce-integration.png",
-  // imageSrc:
-  //   "https://tailwindui.com/img/ecommerce-images/product-page-05-related-product-01.jpg",
   imageAlt:
     "Sample of 30 icons with friendly and fun details in outline, filled, and brand color styles.",
 };

@@ -1,8 +1,8 @@
-import IntegrationTable from "@/components/example/integration-table";
-import ExamplePageHeader from "@/components/example/page-header";
-import type { TabProp } from "@/components/example/tabs";
-import ExamplePageTabs from "@/components/example/tabs";
-import LoadingSpinner from "@/components/loading-spinner";
+import IntegrationTable from "@/components/application/example/integration-table";
+import ExamplePageHeader from "@/components/application/example/page-header";
+import type { TabProp } from "@/components/application/example/tabs";
+import ExamplePageTabs from "@/components/application/example/tabs";
+import LoadingSpinner from "@/components/common/loading-spinner";
 import { prismaticMarketplace } from "@/prismatic/lib";
 import type { Instance } from "@repo/prismatic-js";
 import { Suspense } from "react";
@@ -102,7 +102,6 @@ export default async function ExamplePage({
       <div className="pb-10">
         <ExamplePageHeader integration={integration} />
       </div>
-      {/* <h2 */}
       <ExamplePageTabs tabs={_tabs} />
     </Suspense>
   );

@@ -1,4 +1,6 @@
 "use client";
+import { classNames } from "@/lib/utils";
+import { PrismaticAvatar } from "@/prismatic/components/prismatic-avatar";
 import type { MarketplaceFilter } from "@/types";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
@@ -14,8 +16,6 @@ import type { Integration } from "@repo/prismatic-js";
 import { Button } from "@repo/ui";
 import Link from "next/link";
 import { Fragment } from "react";
-import { classNames } from "../../lib/utils";
-import { PrismaticAvatar } from "../../prismatic/components/prismatic-avatar";
 
 const sortOptions = [
   { name: "Active", href: "#", current: true },
@@ -97,7 +97,7 @@ export function GridActions(): React.ReactNode {
   );
 }
 
-export function GridPagination() {
+export function GridPagination(): React.ReactNode {
   return (
     <nav className="flex items-center justify-between border-t px-4 sm:px-0">
       <div className="-mt-px flex w-0 flex-1">

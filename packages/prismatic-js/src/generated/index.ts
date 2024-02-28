@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- skip
 //@ts-nocheck
 import {
   GenqlError,
@@ -24,11 +25,11 @@ const typeMap = linkTypeMap(types as any);
 
 export interface Client {
   query: <R extends RootQueryGenqlSelection>(
-    request: R & { __name?: string }
+    request: R & { __name?: string },
   ) => Promise<FieldsSelection<RootQuery, R>>;
 
   mutation: <R extends RootMutationGenqlSelection>(
-    request: R & { __name?: string }
+    request: R & { __name?: string },
   ) => Promise<FieldsSelection<RootMutation, R>>;
 }
 
@@ -50,7 +51,7 @@ export const everything = {
 export type QueryResult<fields extends RootQueryGenqlSelection> =
   FieldsSelection<RootQuery, fields>;
 export const generateQueryOp: (
-  fields: RootQueryGenqlSelection & { __name?: string }
+  fields: RootQueryGenqlSelection & { __name?: string },
 ) => GraphqlOperation = function (fields) {
   return generateGraphqlOperation("query", typeMap.Query!, fields as any);
 };
@@ -58,7 +59,7 @@ export const generateQueryOp: (
 export type MutationResult<fields extends RootMutationGenqlSelection> =
   FieldsSelection<RootMutation, fields>;
 export const generateMutationOp: (
-  fields: RootMutationGenqlSelection & { __name?: string }
+  fields: RootMutationGenqlSelection & { __name?: string },
 ) => GraphqlOperation = function (fields) {
   return generateGraphqlOperation("mutation", typeMap.Mutation!, fields as any);
 };

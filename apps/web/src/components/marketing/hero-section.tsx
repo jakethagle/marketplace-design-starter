@@ -2,7 +2,7 @@
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import HeroImage from "./hero-image";
 
-export default function HeroPage() {
+export default function HeroSection(): React.ReactNode {
   return (
     <div className="relative isolate">
       <svg
@@ -42,7 +42,7 @@ export default function HeroPage() {
                 Salesforce is live
               </span>
               <span aria-hidden="true" className="h-4 w-px bg-gray-900/10" />
-              <a className="flex items-center gap-x-1" href="#">
+              <a className="flex items-center gap-x-1" href="/#">
                 <span aria-hidden="true" className="absolute inset-0" />
                 See how to get connected
                 <ChevronRightIcon
@@ -63,13 +63,13 @@ export default function HeroPage() {
           <div className="mt-10 flex items-center gap-x-6">
             <a
               className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-              href="#"
+              href="/#"
             >
               Get started
             </a>
             <a
               className="text-sm font-semibold leading-6 text-gray-900"
-              href="#"
+              href="/#"
             >
               Learn more <span aria-hidden="true">→</span>
             </a>

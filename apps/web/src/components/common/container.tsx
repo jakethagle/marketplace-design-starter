@@ -1,6 +1,6 @@
 import { classNames } from "@/lib/utils";
 
-export default function LayoutWrapper({
+export default function Container({
   children,
   className,
 }: {

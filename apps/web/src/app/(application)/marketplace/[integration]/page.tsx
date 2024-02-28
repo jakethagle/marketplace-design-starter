@@ -1,13 +1,13 @@
-import Listing from "@/components/marketplace/listing";
+import Listing from "@/components/application/marketplace/listing";
 
 export default function ListingPage({
-  params: { slug },
+  params: { integration },
 }: {
-  params: { slug: string };
+  params: { integration: string };
 }): React.ReactNode {
-  return <Listing item={{ ...integration, key: slug }} />;
+  return <Listing item={{ ...defaultIntegration, key: integration }} />;
 }
-const integration = {
+const defaultIntegration = {
   name: "Salesforce",
   version: { name: "6", date: "January 1, 2024", datetime: "" },
   price: "$220",

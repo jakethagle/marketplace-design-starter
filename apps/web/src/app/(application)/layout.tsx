@@ -1,4 +1,4 @@
-import Navbar from "@/components/nav-bar";
+import Navbar from "@/components/application/nav-bar";
 import type { Metadata } from "next";
 import "../globals.css";
 

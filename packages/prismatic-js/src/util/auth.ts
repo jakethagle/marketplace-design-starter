@@ -7,8 +7,14 @@ interface TokenResponse {
   expires_in: number;
   token_type: "Bearer";
 }
+
+/**
+ * Retrieves an access token from the Prismatic API using an organization user's refresh token.
+ * @param refreshToken - The refresh token used to obtain the access token.
+ * @returns A promise that resolves to a TokenResponse object containing the access token and other token information.
+ */
 export async function getAccessToken(
-  refreshToken: string
+  refreshToken: string,
 ): Promise<TokenResponse> {
   const response = await fetch("https://app.prismatic.io/auth/refresh", {
     method: "POST",
@@ -19,6 +25,12 @@ export async function getAccessToken(
   return tokenBody;
 }
 
+/**
+ * Validates a marketplace user token by making a request to the Prismatic API.
+ * @param token - The marketplace user token to validate.
+ * @returns A promise that resolves when the token is successfully validated.
+ * @throws An error if the token validation fails.
+ */
 async function validateMarketplaceUserToken(token: string): Promise<void> {
   const response = await fetch(
     "https://app.prismatic.io/embedded/authenticate",
@@ -28,7 +40,7 @@ async function validateMarketplaceUserToken(token: string): Promise<void> {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-    }
+    },
   );
   if (!response.ok) {
     const text = await response.text();
@@ -36,11 +48,17 @@ async function validateMarketplaceUserToken(token: string): Promise<void> {
   }
 }
 
+/**
+ * Generates a marketplace user token based on the provided parameters and signing key.
+ * @param params - The parameters used to generate the token.
+ * @param signingKey - The signing key used to sign the token.
+ * @returns A promise that resolves to an object containing the generated access token.
+ */
 export async function getMarketplaceUserToken(
   params: MarketplaceTokenParams,
-  signingKey: string
+  signingKey: string,
 ): Promise<{ access_token: string }> {
-  const token = generateMarketplaceToken(params, signingKey);
+  const token = signToken(params, signingKey);
   await validateMarketplaceUserToken(token);
 
   return { access_token: token };
@@ -55,7 +73,13 @@ export interface MarketplaceTokenParams {
   role: string;
 }
 
-export function generateMarketplaceToken(
+/**
+ * Signs a marketplace user token with the provided parameters and signing key.
+ * @param params - The parameters for the token.
+ * @param signingKey - The signing key used to sign the token.
+ * @returns The signed token.
+ */
+export function signToken(
   {
     sub,
     externalId,
@@ -64,7 +88,7 @@ export function generateMarketplaceToken(
     customer,
     role,
   }: MarketplaceTokenParams,
-  signingKey: string
+  signingKey: string,
 ): string {
   const currentTime = Math.floor(Date.now() / 1000);
 
@@ -81,7 +105,7 @@ export function generateMarketplaceToken(
       role,
     },
     signingKey, // Store this somewhere safe
-    { algorithm: "RS256" }
+    { algorithm: "RS256" },
   );
 
   return token;

@@ -9,8 +9,8 @@ import {
   useSelectedLayoutSegment,
 } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { classNames } from "../lib/utils";
-import prismaticConfig from "../prismatic/constants/config";
+import { classNames } from "../../lib/utils";
+import prismaticConfig from "../../prismatic/constants/config";
 
 const navigation = [
   { name: "Dashboard", href: "/", segment: null },
@@ -102,7 +102,7 @@ export default function Navbar(): React.ReactNode {
                 size="default"
                 variant="outline"
               >
-                Login
+                Logout
               </Button>
             </Link>
           </div>

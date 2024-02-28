@@ -1,10 +1,10 @@
 "use client";
-import LoadingSpinner from "@/components/loading-spinner";
+import LoadingSpinner from "@/components/common/loading-spinner";
 import { classNames } from "@/lib/utils";
 import type { Instance } from "@repo/prismatic-js";
 import { Button } from "@repo/ui";
-import React from "react";
-import type { Record } from "../../app/(application)/example/page";
+import { useState } from "react";
+import type { Record } from "../../../app/(application)/example/page";
 
 export default function IntegrationTable({
   records,
@@ -16,7 +16,7 @@ export default function IntegrationTable({
   const exportFlow = instance.flowConfigs?.nodes.find(
     (node) => node?.flow.name === "Export Invoice to Quickbooks",
   );
-  const [exporting, setExporting] = React.useState<number | undefined>();
+  const [exporting, setExporting] = useState<number | undefined>();
   return (
     <div className="py-8">
       <div className="sm:flex sm:items-center">

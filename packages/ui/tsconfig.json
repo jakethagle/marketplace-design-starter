@@ -7,6 +7,6 @@
       "@ui/*": ["./src/*"] // no other project in the monorepo uses this alias
     }
   },
-  "include": ["."],
+  "include": [".", "../../apps/web/src/components/combobox.tsx"],
   "exclude": ["dist", "build", "node_modules"]
 }

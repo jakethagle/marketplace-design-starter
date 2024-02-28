@@ -3,7 +3,7 @@
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { Button } from "@repo/ui";
 import { useState } from "react";
-import { classNames } from "../lib/utils";
+import { classNames } from "../../lib/utils";
 
 export default function Banner(): React.ReactElement {
   const [show, setShow] = useState(true);
