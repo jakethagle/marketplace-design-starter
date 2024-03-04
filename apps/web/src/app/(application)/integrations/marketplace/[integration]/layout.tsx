@@ -3,15 +3,21 @@ import Container from "@/components/common/container";
 
 export default function Layout({
   children,
+  params: { integration },
 }: {
   children: JSX.Element;
+  params: {
+    integration: string;
+  };
 }): JSX.Element {
   return (
     <Container>
-      <div className="pb-6">
-        <BreadcrumbNav slug="salesforce" />
-      </div>
-      {children}
+      <>
+        <div className="py-6">
+          <BreadcrumbNav slug={integration} />
+        </div>
+        {children}
+      </>
     </Container>
   );
 }

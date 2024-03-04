@@ -10,7 +10,7 @@ import { useState } from "react";
 const navigation = [
   { name: "Product", href: "#" },
   { name: "Features", href: "#" },
-  { name: "Marketplace", href: "/marketplace?custom=true" },
+  { name: "Marketplace", href: "/integrations/marketplace?custom=true" },
   { name: "Company", href: "#" },
 ];
 const footerNavigation = {
@@ -118,7 +118,7 @@ export default function Layout({
           aria-label="Global"
           className="flex items-center justify-between p-6 lg:px-8"
         >
-          <div className="flex lg:flex-1">
+          <div className="flex lg:flex-1 items-center">
             <a className="-m-1.5 p-1.5" href="/website">
               <img
                 alt="Company Logo"
@@ -126,7 +126,9 @@ export default function Layout({
                 src="/favicon.ico"
               />
             </a>
-            <h2 className="text-lg font-medium ml-2">{prismaticConfig.name}</h2>
+            <h2 className="text-lg font-medium text-center ml-2">
+              {prismaticConfig.name}
+            </h2>
           </div>
           <div className="flex lg:hidden">
             <button

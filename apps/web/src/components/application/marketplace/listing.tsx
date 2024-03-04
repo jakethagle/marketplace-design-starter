@@ -271,7 +271,7 @@ export function RelatedListings({
       <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
         {listings.map((l) => (
           <div className="group relative" key={l.id}>
-            <div className="aspect-h-3 aspect-w-4 overflow-hidden rounded-lg bg-base-100">
+            <div className="aspect-h-3 aspect-w-4 overflow-hidden rounded-lg bg-primary/5">
               <img
                 alt={l.imageAlt}
                 className="object-cover object-center"
@@ -281,7 +281,7 @@ export function RelatedListings({
                 aria-hidden="true"
                 className="flex items-end p-4 opacity-0 group-hover:opacity-100"
               >
-                <div className="w-full rounded-md text-base-content bg-base-300 bg-opacity-75 px-4 py-2 text-center text-sm font-medium  backdrop-blur backdrop-filter">
+                <div className="w-full rounded-md text-base-content bg-primary/10 bg-opacity-75 px-4 py-2 text-center text-sm font-medium  backdrop-blur backdrop-filter">
                   View Product
                 </div>
               </div>
@@ -319,12 +319,12 @@ export function ListingDetails({ item }: { item: MarketplaceListing }) {
       <p className="mt-6 text-muted-foreground">{item.description}</p>
 
       <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-        <Link href={`/marketplace/${item.key}/settings`}>
+        <Link href={`/integrations/marketplace/${item.key}/settings`}>
           <Button className="w-full">Manage</Button>
         </Link>
-        <Link href={`/marketplace/${item.key}/#`}>
-          <Button className="group w-full " variant="secondary">
-            <CheckCircleIcon className="h-5 w-5 mr-2 text-primary " /> Connected
+        <Link href={`/integrations/marketplace/${item.key}/#`}>
+          <Button className="group w-full " variant="outline">
+            <CheckCircleIcon className="h-5 w-5 mr-2 text-primary" /> Connected
           </Button>
         </Link>
       </div>

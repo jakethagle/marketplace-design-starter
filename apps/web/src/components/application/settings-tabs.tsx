@@ -2,7 +2,7 @@
 import { Tab } from "@headlessui/react";
 import { Fragment } from "react";
 import { classNames } from "../../lib/utils";
-import Marketplace from "../../prismatic/components/embedded-marketplace";
+import Marketplace from "../../prismatic/components/embedded-iframe";
 
 function tabStyle(selected: boolean): string {
   return classNames(
@@ -44,7 +44,7 @@ export default function SettingsTabs(): JSX.Element {
             key="configuration"
           >
             <div className="h-[900px] pt-8">
-              <Marketplace mode="Integration" />
+              <Marketplace integration="" mode="Integration" />
             </div>
           </Tab.Panel>
           <Tab.Panel

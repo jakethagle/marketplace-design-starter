@@ -5,7 +5,7 @@ export default function ExamplePageHeader({
   integration,
 }: {
   integration: string;
-}) {
+}): JSX.Element {
   return (
     <div>
       <div>
@@ -56,7 +56,7 @@ export default function ExamplePageHeader({
                 <Link
                   aria-current="page"
                   className="ml-4 text-sm font-medium text-muted-foreground hover:text-foreground"
-                  href={`/marketplace/${integration}/settings`}
+                  href={`/integrations/marketplace/${integration}/settings`}
                 >
                   {integration}
                 </Link>

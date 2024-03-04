@@ -27,7 +27,7 @@ export default function BreadcrumbNav({ slug }: { slug: string }): JSX.Element {
               <div className="flex">
                 <Link
                   className="text-sm font-medium hover:underline"
-                  href="/marketplace"
+                  href="/integrations/marketplace"
                 >
                   Integration Marketplace
                 </Link>
@@ -41,7 +41,7 @@ export default function BreadcrumbNav({ slug }: { slug: string }): JSX.Element {
                 />
                 <Link
                   className="text-sm font-medium hover:underline capitalize"
-                  href={`/marketplace/${slug}`}
+                  href={`/integrations/marketplace/${slug}`}
                 >
                   {slug}
                 </Link>

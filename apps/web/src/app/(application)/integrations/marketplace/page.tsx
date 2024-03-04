@@ -1,11 +1,11 @@
 import { MarketplaceGrid } from "@/components/application/marketplace/grid";
 import Container from "@/components/common/container";
-import Marketplace from "@/prismatic/components/embedded-marketplace";
+import EmbeddediFrame from "@/prismatic/components/embedded-iframe";
 import { getMarketplaceIntegrations } from "@/prismatic/lib";
 import type { MarketplaceFilter } from "@/types";
 
 export default async function CustomMarketplace({
-  searchParams,
+  searchParams: { custom },
 }: {
   searchParams: { custom: string | undefined };
 }): Promise<React.ReactElement> {
@@ -35,7 +35,8 @@ export default async function CustomMarketplace({
       categories.push(category);
     }
   }
-  return searchParams.custom === "true" ? (
+
+  return custom === "true" ? (
     <Container>
       <MarketplaceGrid
         categories={categories}
@@ -44,8 +45,6 @@ export default async function CustomMarketplace({
       />
     </Container>
   ) : (
-    <div className="h-full">
-      <Marketplace mode="Marketplace" />
-    </div>
+    <EmbeddediFrame mode="Marketplace" />
   );
 }

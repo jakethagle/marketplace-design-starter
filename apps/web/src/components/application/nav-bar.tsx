@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element  -- skip*/
 "use client";
 
 import { Switch } from "@headlessui/react";
@@ -15,18 +16,12 @@ import prismaticConfig from "../../prismatic/constants/config";
 import UserMenu from "../common/user-menu";
 
 const navigation = [
-  { name: "Dashboard", href: "/", segment: null },
+  { name: "Home", href: "/", segment: null },
   {
     name: "Integrations",
     href: "/integrations",
     segment: "integrations",
   },
-  {
-    name: "Marketplace",
-    href: "/marketplace",
-    segment: "marketplace",
-  },
-  { name: "Designer", href: "/designer", segment: "designer" },
   { name: "Example", href: "/example", segment: "example" },
 ];
 
@@ -73,10 +68,15 @@ export default function Navbar(): JSX.Element {
   const activeSegment = useSelectedLayoutSegment();
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2 h-14">
+    <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-2 h-14">
       <div className="flex justify-between">
         <div className="flex">
           <div className="hidden sm:flex flex-row items-center">
+            <img
+              alt=""
+              className="inline-block h-6 w-6 rounded-full mr-2"
+              src="/favicon.ico"
+            />
             <Link href="/website">
               <h3 className="text-xl font-bold leading-7 tracking-tight text-end">
                 {prismaticConfig.name?.replaceAll("Demo", "")}
@@ -104,17 +104,6 @@ export default function Navbar(): JSX.Element {
         <div className="ml-12 flex flex-row justify-end items-center gap-x-2">
           <UserMenu />
           <CustomToggle />
-          {/* <div>
-            <Link href="/login">
-              <Button
-                className="ml-12 bg-opacity-70"
-                size="default"
-                variant="outline"
-              >
-                Logout
-              </Button>
-            </Link>
-          </div>*/}
         </div>
       </div>
     </div>

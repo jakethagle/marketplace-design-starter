@@ -162,7 +162,7 @@ export function CategoryFilters({
                 className={
                   category.id === "all" ? "text-primary underline" : ""
                 }
-                href={`/marketplace?category=${category.id}`}
+                href={`/integrations/marketplace?category=${category.id}`}
               >
                 {category.label}
               </Link>
@@ -220,12 +220,12 @@ export function Grid({ listings }: { listings: Integration[] }): JSX.Element {
           <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-3 sm:gap-y-10 lg:grid-cols-3">
             {listings.map((listing) => (
               <Link
-                href={`/marketplace/${listing.name.toLowerCase()}`}
+                href={`/integrations/marketplace/${listing.name.toLowerCase()}`}
                 key={listing.id}
               >
                 <div className="group relative" key={listing.id}>
-                  <div className="p-4 overflow-hidden rounded-lg bg-gradient-to-b from-green-200/10 to-green-500/10">
-                    <div className="aspect-h-3 aspect-w-4 mx-auto">
+                  <div className="p-4 overflow-hidden rounded-lg bg-gradient-to-b from-primary/5 to-primary/10">
+                    <div className="aspect-h-4 aspect-w-4 mx-auto">
                       <PrismaticAvatar
                         avatarUrl={listing.avatarUrl as unknown as string}
                       />
@@ -233,7 +233,7 @@ export function Grid({ listings }: { listings: Integration[] }): JSX.Element {
                         aria-hidden="true"
                         className="flex items-end p-4 opacity-0 group-hover:opacity-100"
                       >
-                        <div className=" border border-muted-foreground/70 w-full rounded-md bg-secondary bg-opacity-80 px-4 py-2 text-center text-sm font-medium backdrop-blur backdrop-filter ring ring-inset ring-secondary">
+                        <div className="text-primary-foreground border border-muted-foreground/70 w-full rounded-md bg-primary bg-opacity-80 px-4 py-2 text-center text-sm font-medium backdrop-blur backdrop-filter ring ring-inset ring-primary">
                           View Integration
                         </div>
                       </div>
@@ -244,7 +244,7 @@ export function Grid({ listings }: { listings: Integration[] }): JSX.Element {
                       <span aria-hidden="true" className="absolute inset-0" />
                       {listing.name}
                     </h3>
-                    <span className="px-2 py-1 text-xs font-medium inline-flex items-center rounded-md bg-secondary text-secondary-foreground ring-1 ring-inset ring-secondary/10">
+                    <span className="px-2 py-1 text-xs font-medium inline-flex items-center rounded-md bg-primary text-primary-foreground ring-1 ring-inset ring-primary/10">
                       {listing.category}
                     </span>
                   </div>

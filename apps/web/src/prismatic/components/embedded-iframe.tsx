@@ -3,11 +3,11 @@ import prismatic from "@prismatic-io/embedded";
 import { useEffect, useState } from "react";
 import usePrismaticAuth from "../hooks/use-prismatic";
 
-export default function Marketplace({
+export default function EmbeddediFrame({
   mode,
   integration,
 }: {
-  mode: "Marketplace" | "Integration" | "Designer" | "Dashboard";
+  mode: "Marketplace" | "Integration" | "Designer" | "Dashboard" | "Logs";
   integration?: string;
 }): JSX.Element {
   const { authenticated } = usePrismaticAuth();
@@ -42,6 +42,7 @@ export default function Marketplace({
       if (!integration) {
         throw new Error("Integration must be specified");
       }
+
       prismatic.configureIntegration({
         integrationName: integration,
         theme: "LIGHT",
@@ -56,6 +57,7 @@ export default function Marketplace({
           },
         },
       });
+
       setInitialized(true);
     } else if (authenticated && mode === "Designer") {
       prismatic.showIntegrations({
@@ -77,6 +79,24 @@ export default function Marketplace({
           initializing: {
             background: "#FFFFFF",
             color: "#000000",
+          },
+          dashboard: {
+            hideTabs: ["Marketplace", "Integrations"],
+          },
+        },
+      });
+      setInitialized(true);
+    } else if (authenticated && mode === "Logs") {
+      prismatic.showLogs({
+        theme: "LIGHT",
+        selector: "#prismatic-embedded",
+        screenConfiguration: {
+          initializing: {
+            background: "#FFFFFF",
+            color: "#000000",
+          },
+          dashboard: {
+            hideTabs: ["Marketplace", "Integrations"],
           },
         },
       });

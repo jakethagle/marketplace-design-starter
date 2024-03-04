@@ -13,17 +13,12 @@ export default function RootLayout({
   children: JSX.Element;
 }): JSX.Element {
   return (
-    <html
-      className="h-screen"
-      // data-theme="dark"
-      lang="en"
-      suppressHydrationWarning
-    >
+    <html className="h-screen" lang="en" suppressHydrationWarning>
       <body className="h-full font-sans antialiased">
         <nav className="border-b border-border">
           <Navbar />
         </nav>
-        <main className="h-[calc(100%_-_6rem)]">{children}</main>
+        <main className="h-[calc(100%_-_3.75rem)]">{children}</main>
       </body>
     </html>
   );
