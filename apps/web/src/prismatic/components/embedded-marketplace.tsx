@@ -9,7 +9,7 @@ export default function Marketplace({
 }: {
   mode: "Marketplace" | "Integration" | "Designer" | "Dashboard";
   integration?: string;
-}): React.ReactNode {
+}): JSX.Element {
   const { authenticated } = usePrismaticAuth();
   const [initialized, setInitialized] = useState(false);
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function Marketplace({
           },
           marketplace: { configuration: "allow-details" },
           configurationWizard: {
-            triggerDetailsConfiguration: "hidden",
+            triggerDetailsConfiguration: "default-open",
           },
         },
       });

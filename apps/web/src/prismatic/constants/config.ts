@@ -10,36 +10,36 @@ import { PrismaticConfig } from '../types';
  */
 
 const signingKey = `-----BEGIN PRIVATE KEY-----
-MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDt5PdwHe8u+GM2
-SKFilsSemesdrXu/R7rJIiG4bH9VNz3UosgPtltcZAPlhUFzdS8keGy7LtjDHvIw
-sWsxKzAyb4tf/C/vEdBvEIOxbfOvem2bhhkLADjOWDlYnPm2h9dGQH/B4ng99SVV
-uiowXbFNO9RWn8xF1gFU/VvMpKJkSu+NBTIGNI7pCanbBYgYJ2ygHwlyuSuEcY3Q
-XBJuqnAZmlcXNsOeqKOYhdu1Inx0SUWEzBCgcU4qmPLV8qk1g56WsXSbMvcyfewF
-A0Oy5f07OVR77RQzwXo2s3o60BnAcTXuC+18IuyOLhoO6mEewTtfyNJXL1X2TxNr
-kijWpcqFAgMBAAECggEADbmwpwOAdHLN8pNVMFrSLvO4HicPZTVZFa1bnwgvfotT
-N2ye41KE9JCBWGGMVFeAp/eEunX/o/Op9dzpT4BrkEq26Auk+QOg8CTWnErjjOPL
-kCC4BYD2m2fOrd9SBFHTvftkWPDdOXc74grSz/s6irdhebqlg//5ZV3AHqSps+SH
-GBGzZaI/ov7l1E54l4tTO71g8HW2nKXKd3jEudDwD/pFxc1SsMDGRS4xTm9tnRVV
-JUOV3ZrhJBlMB2Q6JOWOFLvVXag+z5VtItSLCTWKfZnSsgqU0F11Z54deNtSU+Pr
-FB08h37G01P8mBvdEuk2wlMwYBMbY7+QnzniuiP1jwKBgQD/tgr1Bpq2fbWNly4T
-zTWXmCVata2i97EtyRL+Daf8f/5OFsBv58Y19ZPoEgTUFOwA9iXZxDRnuHMDK54g
-XPX+W6HrJiJ1I8QvfWwzGYKB1bGnh4MPTd3fblCfBq09QMIgkjmGH70GDbQCfqLi
-phmCzwWcSUgYXnYn28aw2+8h4wKBgQDuKcVRka9bYESVjdsG4dE5pWnPkDEu6Gr+
-Hzyb04fzDvlnkWMq08vkfm7A6xG9Dig0zFiGyIIWmJ6ZPWCPldnw6g8FvWYN3dPD
-2MzXli3BtXeWTj/2Up1PQ92WEYrJJMZRvLUflDutMdQzM/H4tv20a+9ivl/4cX8B
-vNQmM9TudwKBgChKMJPGxJ24VODITzRDgwwtpsUSFxe0WzBRnDJ3SF6adCEtqIh5
-Rlu+I93O6P/ZhA3qurADIBavkz+Ooc2LmB7JpUt9qLQ4PHMXGfM7M7rtRp6U1WuV
-4z2PDhjgXm9mQrALGhEt8wR/KDu0ZEm9zgs0PzgOu9NLHubM1BONs7HtAoGAF5EQ
-kmq9FGipQLdBxiOQRYkFuGFHTKH4/F5w6+Z5nGaN7V6olnNQyLJuGS7pmXCOL/NM
-i0HKBZxijT1SkcK9RyaSB/pe395kdwu78VVN/84KIFhr4d747AAGLDReLFs0OKBY
-t+A+K3wzyEFKn1bUMgdAL+AwtO/eJnjd8U3Nsy8CgYAvE4A2gzcNzvEgrQmqlwNl
-ypKHPqlh/EYGESd3zVrWoLELsRQPrgP+NzPO9jPnfTFWhHfcub9QRVK5h7QYa2hz
-LM3gJsq/jVMczSk/Ho6FJR2QH7i4FDLzgF0GqHmHLKikDhukNjaAqElGiZcLknr0
-t/cQ3EhMFFWyxgXz0Zj3vg==
+MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCdMlrO78lell9x
+DodHt6x5kQlaUgN2iAkxP8VFnDaJvSTy6MHLwZeO1prORRJ8dTrC+PWyPisjU7gA
+wPI5HQA/e2exYFk2zYBZROM3YLbhgURD9NZBU7NyZ+Tf5FMaI3Oc9GMsGHTzeIRg
+qG9MXD1fFB0hKGnF3WhSiRTmfzgbLTV/NaYDSz5jP1NqXtmeCAGESV4cQG2X+zPH
+1za383GYQqaCrPRGxWHIjfj+ENOMxzLsP6NEifEzSmeLFXkDxZ3tB2WyPZHHKmp0
+tXo01eXp+U/sRFV4F5HkyPIf3a43Z6v0n8bId80PX02JtSJxszGs8E7ev0vG7l4P
+drn8hCQDAgMBAAECggEAJG/imqr8Oz+R2evrMZWClh8nUtdF1DjOIKtOd8cw4RaF
+tQR8v1UdY0+dTIi4Mz8dIsqAcRN1/ldOhGY0/0YYo55gN75Ej65svMR6AoEZgwXq
+o/Hho/zZ0IACjl8nYBytlMkVH8h/e1wJGzqPqdyLoTlRUzlB40ph/xelT5RXlfy0
+sNyajKWksnjxWvx4SB3y+IsParX7C0wUcGlHOBR0olJ0QTcUbsCr181a8Quad7CC
+rauGqXlYwjafXR4uzm3+v6Ro3SjgLX/S0MCvUY08OAhd9HwUfEb2cDJ4L19kgUBS
+sqe1ggFpfMmjjnZhCibGwkZdIpN5jby2+0Wr8keicQKBgQDE38OlLWy8Xb+KgRFV
+dGfq35IagT6SD75GK8Xo+ZHVKs+UdbtBtNmfv3/0B/+JylfQ8hoZKrRALVeTjfu4
+7tUJ9l9f7mTX+KkM5I3r6/XTvv3yWWGQTuUSdJmeormhP8VxeivDrkrdqMDF7ykt
+GWvUihDCgGcXg4aIlR66SzRPCwKBgQDMaBTN53nyGkz6irtahy8pQbWYrb11hZcT
+C/QOAMizNx3sj2yWwAJ26ut+aExyeB4mRGS6qyq9c1zaBq4iWlK4tQgaxR1owjhb
+YSVHkcBPBCljhmopCYZO2dlXIazBvuD4N2ABheDoN+/V0ACq3dWqEKvBRKsl3jie
+fWIJ+SR56QKBgFn8/eyOatle8KJahJXO84EEWEANO5B/6bUhZQEssmABhYiSl9lc
+1OyUF+Rvk3pkJue3Af7m6iU7lIA5sgnCAVbgao/q4+VkH8Fo5wYjgOYcsu8Hs/TG
+WyaobV95eegewh0wfrie/lF7RUI0I1od+I/Z2/dLwdOZpvDfWIBGx84pAoGAYbt2
+DwkZNle67KP+dodiVkCTuj9/8bwBAttZQoS/cWjuBtiAnAeMZh1moZbuzmB+Ud+r
+pdEHa3PINnqxMb2sBaKREHOk3xzV42Msdu7KWz1rKKnxAlQKgpMIpu9z8WL5n9Si
+M7g2U/HC26FLYGcWrOyxooPZrQ52VdkvUgNsnFkCgYBkG5DzbpN7+AqcLlbucNGt
+PwjQoRTE1T44+HjP4O4QZkZA5QdeEVUZv+X8HFulJfz5Uh1DZDpY5d+MS/Ot0Va/
+zCx3O/1fq+g4CRi+hEQKT0padOjBIIj7xBAn1OaHm2U18En5QJCr4LG9TIYOUVCN
+e/hYN28h4a06+sFmX+WMHw==
 -----END PRIVATE KEY-----`;
 
 const config: PrismaticConfig = {
-  refreshToken: '9Klg4sh2nR7tzk1UJ1zlgWkACNNiFfvaxdPBlT6OOSdgg',
+  refreshToken: 'mEOyVjwMgBTq8Fn-eSrLdSHdsBqluzJdkwuQ8ZSNlWMKf',
   prismaticUrl: 'https://app.prismatic.io',
   sub: 'example.customer@Acme SaaS-customer.com',
   organization: 'T3JnYW5pemF0aW9uOmEzMzcxNDg1LTdjNmUtNDVmZC04MzBlLThkMjIxMzEzNTJmYg==',
@@ -48,5 +48,19 @@ const config: PrismaticConfig = {
   signingKey,
   role: 'admin'
 };
+export const customers = [
+  {
+    "id": "Q3VzdG9tZXI6ZDkyYjU2MmEtNmU0NC00YTg2LWExNGYtYjIyMDZjZDMxZTQz",
+    "name": "Innovative Exports LLC"
+  },
+  {
+    "id": "Q3VzdG9tZXI6MjIxODE5MWEtYTg4Zi00YTRmLTg3NmYtZjUzNTA0NTUyMjYz",
+    "name": "Commerce Co"
+  },
+  {
+    "id": "Q3VzdG9tZXI6N2Q1ODA2ZjEtYzljNy00NTU1LTlmYjMtNzE0YmUyOGZmNjE1",
+    "name": "Internal"
+  }
+];
 
 export default config;

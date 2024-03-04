@@ -3,22 +3,22 @@
 export default function HeroImage() {
   return (
     <svg
-      className="object-center bg-background bg-opacity-0 rounded-lg"
+      className="object-center bg-background bg-opacity-50 rounded-lg"
       fill=""
       viewBox="100 80 900 900"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_287_1219)">
-        <rect className="fill-background bg-background" />
+        <rect className="bg-yellow-500 bg-opacity-100" />
         <path
           d="M914.2 510C914.2 514.5 914.1 519 913.8 523.2C956.8 555.9 989.9 626 989.9 687.7C989.9 754.9 950.6 786.6 902.1 758.6C902 758.5 901.9 758.5 901.8 758.4L597.1 582.7C597 582.6 596.9 582.6 596.7 582.5C542.2 551 498 464.3 498 388.8C498 318.1 536.8 282.2 586.5 303.9C592.6 255.4 625.1 234.5 664.3 257.2C683.1 268.1 700.4 287.2 713.9 310.2C733.5 281.1 766.9 273.7 804.7 295.5C865.2 330.3 914.2 426.4 914.2 510Z"
           fill="url(#paint0_linear_287_1219)"
-          opacity="0.07"
+          opacity="0.6"
         />
         <path
           d="M864.2 558C864.2 562.5 864.1 567 863.8 571.2C906.8 603.9 939.9 674 939.9 735.7C939.9 802.9 900.6 834.6 852.1 806.6C852 806.5 851.9 806.5 851.8 806.4L547.1 630.7C547 630.6 546.9 630.6 546.7 630.5C492.2 599 448 512.3 448 436.8C448 366.1 486.8 330.2 536.5 351.9C542.6 303.4 575.1 282.5 614.3 305.2C633.1 316.1 650.4 335.2 663.9 358.2C683.5 329.1 716.9 321.7 754.7 343.5C815.2 378.3 864.2 474.4 864.2 558Z"
           fill="url(#paint1_linear_287_1219)"
-          opacity="0.4"
+          opacity="0.6"
         />
         <path
           className="bg-foreground"

@@ -4,9 +4,9 @@ export default function Container({
   children,
   className,
 }: {
-  children: React.ReactNode;
+  children: JSX.Element;
   className?: string;
-}): React.ReactNode {
+}): JSX.Element {
   return (
     <div
       className={classNames(

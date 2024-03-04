@@ -6,14 +6,21 @@ import Link from "next/link";
 import {
   usePathname,
   useRouter,
+  useSearchParams,
   useSelectedLayoutSegment,
 } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { classNames } from "../../lib/utils";
 import prismaticConfig from "../../prismatic/constants/config";
+import UserMenu from "../common/user-menu";
 
 const navigation = [
   { name: "Dashboard", href: "/", segment: null },
+  {
+    name: "Integrations",
+    href: "/integrations",
+    segment: "integrations",
+  },
   {
     name: "Marketplace",
     href: "/marketplace",
@@ -23,8 +30,9 @@ const navigation = [
   { name: "Example", href: "/example", segment: "example" },
 ];
 
-export function CustomToggle(): React.ReactNode {
-  const [enabled, setEnabled] = useState(false);
+export function CustomToggle(): JSX.Element {
+  const params = useSearchParams();
+  const [enabled, setEnabled] = useState(Boolean(params.get("custom")));
   const router = useRouter();
   const pathname = usePathname();
   useEffect(() => {
@@ -61,7 +69,7 @@ export function CustomToggle(): React.ReactNode {
     </Switch>
   );
 }
-export default function Navbar(): React.ReactNode {
+export default function Navbar(): JSX.Element {
   const activeSegment = useSelectedLayoutSegment();
 
   return (
@@ -93,9 +101,10 @@ export default function Navbar(): React.ReactNode {
             </div>
           </div>
         </div>
-        <div className="ml-12 flex flex-row justify-end items-center">
+        <div className="ml-12 flex flex-row justify-end items-center gap-x-2">
+          <UserMenu />
           <CustomToggle />
-          <div>
+          {/* <div>
             <Link href="/login">
               <Button
                 className="ml-12 bg-opacity-70"
@@ -105,7 +114,7 @@ export default function Navbar(): React.ReactNode {
                 Logout
               </Button>
             </Link>
-          </div>
+          </div>*/}
         </div>
       </div>
     </div>

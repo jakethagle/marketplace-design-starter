@@ -12,7 +12,7 @@ export default function IntegrationTable({
 }: {
   records: Record[];
   instance: Partial<Instance>;
-}): React.ReactNode {
+}): JSX.Element {
   const exportFlow = instance.flowConfigs?.nodes.find(
     (node) => node?.flow.name === "Export Invoice to Quickbooks",
   );

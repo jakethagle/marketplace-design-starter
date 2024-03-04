@@ -1,6 +1,6 @@
 import Container from "@/components/common/container";
 
-export default function Dashboard(): React.ReactNode {
+export default function Dashboard(): JSX.Element {
   return (
     <Container>
       <div className="pt-10">

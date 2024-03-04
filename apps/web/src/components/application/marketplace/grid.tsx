@@ -23,7 +23,7 @@ const sortOptions = [
   { name: "Name", href: "#", current: false },
 ];
 
-export function MarketplaceHeader(): React.ReactNode {
+export function MarketplaceHeader(): JSX.Element {
   return (
     <div>
       <h1 className="text-4xl font-bold tracking-tight">
@@ -37,7 +37,7 @@ export function MarketplaceHeader(): React.ReactNode {
   );
 }
 
-export function GridActions(): React.ReactNode {
+export function GridActions(): JSX.Element {
   return (
     <div className="flex items-center">
       {/* Sort Menu */}
@@ -97,7 +97,7 @@ export function GridActions(): React.ReactNode {
   );
 }
 
-export function GridPagination(): React.ReactNode {
+export function GridPagination(): JSX.Element {
   return (
     <nav className="flex items-center justify-between border-t px-4 sm:px-0">
       <div className="-mt-px flex w-0 flex-1">
@@ -149,7 +149,7 @@ export function CategoryFilters({
 }: {
   categories: string[];
   filters: MarketplaceFilter[];
-}): React.ReactNode {
+}): JSX.Element {
   return (
     <form className="hidden lg:block">
       <ul className="space-y-4 border-b  pb-6 text-sm font-medium ">
@@ -212,11 +212,7 @@ export function CategoryFilters({
   );
 }
 
-export function Grid({
-  listings,
-}: {
-  listings: Integration[];
-}): React.ReactNode {
+export function Grid({ listings }: { listings: Integration[] }): JSX.Element {
   return (
     <div className="lg:col-span-3">
       <div className="">
@@ -272,7 +268,7 @@ export function MarketplaceGrid({
   filters,
   categories,
   listings,
-}: MarketplaceGridProps): React.ReactNode {
+}: MarketplaceGridProps): JSX.Element {
   return (
     <>
       <div className="flex items-end justify-between border-b pb-6 pt-6">

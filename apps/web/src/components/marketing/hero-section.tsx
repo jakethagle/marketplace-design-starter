@@ -2,12 +2,12 @@
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import HeroImage from "./hero-image";
 
-export default function HeroSection(): React.ReactNode {
+export default function HeroPageSection(): JSX.Element {
   return (
     <div className="relative isolate">
       <svg
         aria-hidden="true"
-        className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        className="absolute inset-0 -z-10 h-full w-full stroke-primary/30 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
       >
         <defs>
           <pattern
@@ -39,7 +39,7 @@ export default function HeroSection(): React.ReactNode {
           <div className="flex">
             <div className="relative flex items-center gap-x-4 rounded-full px-4 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               <span className="font-semibold text-primary">
-                Salesforce is live
+                {"{INTEGRATION}"}is live
               </span>
               <span aria-hidden="true" className="h-4 w-px bg-gray-900/10" />
               <a className="flex items-center gap-x-1" href="/#">
@@ -53,12 +53,11 @@ export default function HeroSection(): React.ReactNode {
             </div>
           </div>
           <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            A better way to ship your projects
+            Unlock your business potential through integration.
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Esse id magna consectetur fugiat non dolor in ad laboris magna
-            laborum ea consequat. Nisi irure aliquip nisi adipisicing veniam
-            voluptate id. In veniam incididunt ex veniam adipisicing sit.
+            Easily connect your favorite tools and applications through our
+            self-serve marketplace of integrations.
           </p>
           <div className="mt-10 flex items-center gap-x-6">
             <a
@@ -76,9 +75,7 @@ export default function HeroSection(): React.ReactNode {
           </div>
         </div>
         <div className="mx-auto max-w-3xl lg:m-0 lg:flex-auto lg:relative bg-opacity-0">
-          {/* <div className="mx-auto max-w-md px-6 sm:max-w-2xl lg:max-w-none lg:px-0"> */}
           <HeroImage />
-          {/* </div> */}
         </div>
       </div>
     </div>

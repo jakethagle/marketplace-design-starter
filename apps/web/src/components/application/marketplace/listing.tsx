@@ -144,7 +144,7 @@ export function ListingCoverImage({
   item,
 }: {
   item: MarketplaceListing;
-}): React.ReactNode {
+}): JSX.Element {
   return (
     <div className="aspect-h-3 aspect-w-4 overflow-hidden rounded-lg bg-background">
       <img
@@ -159,7 +159,7 @@ export function ChangeLog({
   changeLog,
 }: {
   changeLog: ListingChangeLog;
-}): React.ReactNode {
+}): JSX.Element {
   return (
     <div
       className="prose prose-sm max-w-none text-muted-foreground prose-headings:text-foreground"
@@ -191,7 +191,7 @@ export function FAQ({
   );
 }
 
-export function DetailTabs(): React.ReactNode {
+export function DetailTabs(): JSX.Element {
   return (
     <div className="mt-16 w-full lg:col-span-4 lg:mt-0">
       <Tab.Group as="div">

@@ -1,7 +1,7 @@
 "use client";
 import { classNames } from "@/lib/utils";
 import { Tab } from "@headlessui/react";
-import React, { Fragment, Suspense } from "react";
+import { Fragment, Suspense } from "react";
 
 function tabStyle(selected: boolean): string {
   return classNames(
@@ -10,7 +10,7 @@ function tabStyle(selected: boolean): string {
   );
 }
 export interface TabProp {
-  panel: React.ReactNode;
+  panel: JSX.Element;
   label: string;
   key: string;
 }
@@ -19,7 +19,7 @@ export default function ExamplePageTabs({
   tabs,
 }: {
   tabs: TabProp[];
-}): React.ReactNode {
+}): JSX.Element {
   return (
     <Suspense fallback={null}>
       <div className=" w-full h-full lg:col-span-4 lg:mt-0 ">

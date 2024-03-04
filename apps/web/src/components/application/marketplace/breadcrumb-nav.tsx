@@ -2,11 +2,7 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
-export default function BreadcrumbNav({
-  slug,
-}: {
-  slug: string;
-}): React.ReactNode {
+export default function BreadcrumbNav({ slug }: { slug: string }): JSX.Element {
   return (
     <div className="relative ">
       <div className="">

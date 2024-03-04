@@ -1,7 +1,7 @@
 export default function Layout({
   children,
 }: {
-  children: React.ReactNode;
-}): React.ReactNode {
+  children: JSX.Element;
+}): JSX.Element {
   return <div className="h-full w-full">{children}</div>;
 }

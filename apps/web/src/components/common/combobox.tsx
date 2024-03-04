@@ -1,7 +1,7 @@
 import { classNames } from "@/lib/utils";
 import { Combobox as HeadlessComboBox } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import React, { useState } from "react";
+import { useState } from "react";
 
 interface Option {
   key: string;
@@ -11,7 +11,7 @@ export default function Combobox({
   options,
 }: {
   options: Option[];
-}): React.ReactNode {
+}): JSX.Element {
   const [query, setQuery] = useState("");
   const [selectedItem, setSelectedItem] = useState(null);
 

@@ -4,7 +4,7 @@ export default function ListingPage({
   params: { integration },
 }: {
   params: { integration: string };
-}): React.ReactNode {
+}): JSX.Element {
   return <Listing item={{ ...defaultIntegration, key: integration }} />;
 }
 const defaultIntegration = {

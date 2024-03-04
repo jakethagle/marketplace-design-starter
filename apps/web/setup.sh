@@ -13,6 +13,17 @@ ORG=$(curl ${API_ENDPOINT} -X POST \
     -H "Authorization: bearer ${API_KEY}" \
     --data "$(echo $QUERY)" | jq .data)
 
+CUSTOMERS_QUERY='{
+  "query":
+    "query { customers(isSystem: false) { nodes { id name } }}"
+}'
+
+
+
+CUSTOMERS=$(curl ${API_ENDPOINT} -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: bearer ${API_KEY}" \
+    --data "$(echo $CUSTOMERS_QUERY)" | jq .data.customers.nodes)
 
 ORG_ID=$(echo $ORG | jq .organization.id | tr -d '"')
 ORG_NAME=$(echo $ORG | jq .organization.name | tr -d '"')
@@ -46,6 +57,7 @@ const config: PrismaticConfig = {
   signingKey,
   role: 'admin'
 };
+export const customers = $CUSTOMERS;
 
 export default config;
 EOF

@@ -1,6 +1,6 @@
 "use client";
 import { Tab } from "@headlessui/react";
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { classNames } from "../../lib/utils";
 import Marketplace from "../../prismatic/components/embedded-marketplace";
 
@@ -12,7 +12,7 @@ function tabStyle(selected: boolean): string {
     "whitespace-nowrap border-b-2 py-4 text-sm font-medium outline-none transition-colors",
   );
 }
-export default function SettingsTabs(): React.ReactNode {
+export default function SettingsTabs(): JSX.Element {
   return (
     <div className=" w-full h-full lg:col-span-4 lg:mt-0">
       <Tab.Group as="div">
