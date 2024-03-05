@@ -68,7 +68,7 @@ export default function Navbar(): JSX.Element {
   const activeSegment = useSelectedLayoutSegment();
 
   return (
-    <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-2 h-14">
+    <div className="mx-auto max-w-[1800px] px-4 sm:px-6 lg:px-8 py-2 h-14">
       <div className="flex justify-between">
         <div className="flex">
           <div className="hidden sm:flex flex-row items-center">

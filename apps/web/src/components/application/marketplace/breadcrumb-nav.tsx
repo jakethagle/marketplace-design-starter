@@ -9,7 +9,7 @@ export default function BreadcrumbNav({ slug }: { slug: string }): JSX.Element {
         <nav aria-label="Back" className="sm:hidden">
           <Link
             className="flex items-center text-sm font-medium "
-            href="/marketplace"
+            href="/integrations/marketplace"
           >
             <ChevronLeftIcon
               aria-hidden="true"
@@ -29,7 +29,7 @@ export default function BreadcrumbNav({ slug }: { slug: string }): JSX.Element {
                   className="text-sm font-medium hover:underline"
                   href="/integrations/marketplace"
                 >
-                  Integration Marketplace
+                  Marketplace
                 </Link>
               </div>
             </li>

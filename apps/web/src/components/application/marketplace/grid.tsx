@@ -276,7 +276,7 @@ export function MarketplaceGrid({
         <GridActions />
       </div>
       <section aria-labelledby="marketplace-headings" className="pb-24 pt-6">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
           <CategoryFilters categories={categories} filters={filters} />
           <Grid listings={listings} />
           <div className="mt-6 lg:col-start-2 lg:col-span-3 lg:mt-0">

@@ -11,7 +11,10 @@ export default function Layout({
 }): JSX.Element {
   return (
     <div
-      className={classNames("h-full w-full", custom === "true" ? "py-8" : "")}
+      className={classNames(
+        "h-full w-full",
+        custom === "true" ? "py-4 lg:py-0" : "",
+      )}
     >
       {children}
     </div>

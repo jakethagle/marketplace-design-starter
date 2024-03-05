@@ -1,5 +1,4 @@
 import { MarketplaceGrid } from "@/components/application/marketplace/grid";
-import Container from "@/components/common/container";
 import EmbeddediFrame from "@/prismatic/components/embedded-iframe";
 import { getMarketplaceIntegrations } from "@/prismatic/lib";
 import type { MarketplaceFilter } from "@/types";
@@ -37,13 +36,13 @@ export default async function CustomMarketplace({
   }
 
   return custom === "true" ? (
-    <Container>
+    <div className="h-full w-full">
       <MarketplaceGrid
         categories={categories}
         filters={filters}
         listings={marketplaceIntegrations.nodes}
       />
-    </Container>
+    </div>
   ) : (
     <EmbeddediFrame mode="Marketplace" />
   );
