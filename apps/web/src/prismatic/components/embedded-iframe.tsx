@@ -28,12 +28,12 @@ export default function EmbeddediFrame({
         selector: "#prismatic-embedded",
         screenConfiguration: {
           initializing: {
-            background: "#FFFFFF",
-            color: "#000000",
+            background: "#F7F8F9",
+            color: "#F7F8F9",
           },
           marketplace: { configuration: "allow-details" },
           configurationWizard: {
-            triggerDetailsConfiguration: "default-open",
+            triggerDetailsConfiguration: "hidden",
           },
         },
       });
@@ -49,8 +49,8 @@ export default function EmbeddediFrame({
         selector: "#prismatic-embedded",
         screenConfiguration: {
           initializing: {
-            background: "#FFFFFF",
-            color: "#000000",
+            background: "#F7F8F9",
+            color: "#F7F8F9",
           },
           instance: {
             hideBackToMarketplace: true,
@@ -65,8 +65,8 @@ export default function EmbeddediFrame({
         selector: "#prismatic-embedded",
         screenConfiguration: {
           initializing: {
-            background: "#FFFFFF",
-            color: "#000000",
+            background: "#F7F8F9",
+            color: "#F7F8F9",
           },
         },
       });
@@ -77,8 +77,8 @@ export default function EmbeddediFrame({
         selector: "#prismatic-embedded",
         screenConfiguration: {
           initializing: {
-            background: "#FFFFFF",
-            color: "#000000",
+            background: "#F7F8F9",
+            color: "#F7F8F9",
           },
           dashboard: {
             hideTabs: ["Marketplace", "Integrations"],
@@ -92,8 +92,8 @@ export default function EmbeddediFrame({
         selector: "#prismatic-embedded",
         screenConfiguration: {
           initializing: {
-            background: "#FFFFFF",
-            color: "#000000",
+            background: "#F7F8F9",
+            color: "#F7F8F9",
           },
           dashboard: {
             hideTabs: ["Marketplace", "Integrations"],

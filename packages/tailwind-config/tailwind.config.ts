@@ -3,6 +3,15 @@ import type { Config } from "tailwindcss";
 // We want each package to be responsible for its own content.
 const config: Omit<Config, "content"> = {
   theme: {
+    fontSize: {
+      sm: "1rem",
+      base: "1.15rem",
+      xl: "1.25rem",
+      "2xl": "1.563rem",
+      "3xl": "1.953rem",
+      "4xl": "2.441rem",
+      "5xl": "3.052rem",
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
