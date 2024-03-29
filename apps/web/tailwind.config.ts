@@ -4,7 +4,11 @@ import sharedConfig from "@repo/tailwind-config";
 import type { Config } from "tailwindcss";
 
 const config: Pick<Config, "content" | "presets" | "plugins"> = {
-  content: ["./src/app/**/*.tsx", "./src/components/**/*.tsx"],
+  content: [
+    "./src/app/**/*.tsx",
+    "./src/components/**/*.tsx",
+    "./src/prismatic/**/*.tsx",
+  ],
   presets: [sharedConfig],
   plugins: [
     require("@tailwindcss/aspect-ratio"),

@@ -45,11 +45,13 @@ const usePrismaticAuth = (): AuthConfig => {
   const [activeRole, setActiveRole] = useState<Role>();
 
   useEffect(() => {
-    const role = getRoleFromCookie();
-    setActiveRole(role);
-  }, [activeRole]);
+    if (authenticated || !activeRole) {
+      const role = getRoleFromCookie();
+      setActiveRole(role);
+    }
+  }, [activeRole, authenticated]);
 
-  const handleSetRole = async (newRole: Role) => {
+  const handleSetRole = async (newRole: Role): Promise<void> => {
     if (newRole !== activeRole) {
       await setRole(newRole);
       setAuthenticated(false);
@@ -65,7 +67,13 @@ const usePrismaticAuth = (): AuthConfig => {
 
     const authenticate = async (): Promise<void> => {
       if (!init) {
-        prismatic.init();
+        prismatic.init({
+          fontConfiguration: {
+            google: {
+              families: ["Inter"],
+            },
+          },
+        });
         setInit(true);
       }
 

@@ -36,7 +36,7 @@ export default async function CustomMarketplace({
   }
 
   return custom === "true" ? (
-    <div className="h-full w-full">
+    <div className="h-full w-full px-6">
       <MarketplaceGrid
         categories={categories}
         filters={filters}

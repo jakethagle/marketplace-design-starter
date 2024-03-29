@@ -10,56 +10,56 @@ import { PrismaticConfig } from '../types';
  */
 
 const signingKey = `-----BEGIN PRIVATE KEY-----
-MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCdMlrO78lell9x
-DodHt6x5kQlaUgN2iAkxP8VFnDaJvSTy6MHLwZeO1prORRJ8dTrC+PWyPisjU7gA
-wPI5HQA/e2exYFk2zYBZROM3YLbhgURD9NZBU7NyZ+Tf5FMaI3Oc9GMsGHTzeIRg
-qG9MXD1fFB0hKGnF3WhSiRTmfzgbLTV/NaYDSz5jP1NqXtmeCAGESV4cQG2X+zPH
-1za383GYQqaCrPRGxWHIjfj+ENOMxzLsP6NEifEzSmeLFXkDxZ3tB2WyPZHHKmp0
-tXo01eXp+U/sRFV4F5HkyPIf3a43Z6v0n8bId80PX02JtSJxszGs8E7ev0vG7l4P
-drn8hCQDAgMBAAECggEAJG/imqr8Oz+R2evrMZWClh8nUtdF1DjOIKtOd8cw4RaF
-tQR8v1UdY0+dTIi4Mz8dIsqAcRN1/ldOhGY0/0YYo55gN75Ej65svMR6AoEZgwXq
-o/Hho/zZ0IACjl8nYBytlMkVH8h/e1wJGzqPqdyLoTlRUzlB40ph/xelT5RXlfy0
-sNyajKWksnjxWvx4SB3y+IsParX7C0wUcGlHOBR0olJ0QTcUbsCr181a8Quad7CC
-rauGqXlYwjafXR4uzm3+v6Ro3SjgLX/S0MCvUY08OAhd9HwUfEb2cDJ4L19kgUBS
-sqe1ggFpfMmjjnZhCibGwkZdIpN5jby2+0Wr8keicQKBgQDE38OlLWy8Xb+KgRFV
-dGfq35IagT6SD75GK8Xo+ZHVKs+UdbtBtNmfv3/0B/+JylfQ8hoZKrRALVeTjfu4
-7tUJ9l9f7mTX+KkM5I3r6/XTvv3yWWGQTuUSdJmeormhP8VxeivDrkrdqMDF7ykt
-GWvUihDCgGcXg4aIlR66SzRPCwKBgQDMaBTN53nyGkz6irtahy8pQbWYrb11hZcT
-C/QOAMizNx3sj2yWwAJ26ut+aExyeB4mRGS6qyq9c1zaBq4iWlK4tQgaxR1owjhb
-YSVHkcBPBCljhmopCYZO2dlXIazBvuD4N2ABheDoN+/V0ACq3dWqEKvBRKsl3jie
-fWIJ+SR56QKBgFn8/eyOatle8KJahJXO84EEWEANO5B/6bUhZQEssmABhYiSl9lc
-1OyUF+Rvk3pkJue3Af7m6iU7lIA5sgnCAVbgao/q4+VkH8Fo5wYjgOYcsu8Hs/TG
-WyaobV95eegewh0wfrie/lF7RUI0I1od+I/Z2/dLwdOZpvDfWIBGx84pAoGAYbt2
-DwkZNle67KP+dodiVkCTuj9/8bwBAttZQoS/cWjuBtiAnAeMZh1moZbuzmB+Ud+r
-pdEHa3PINnqxMb2sBaKREHOk3xzV42Msdu7KWz1rKKnxAlQKgpMIpu9z8WL5n9Si
-M7g2U/HC26FLYGcWrOyxooPZrQ52VdkvUgNsnFkCgYBkG5DzbpN7+AqcLlbucNGt
-PwjQoRTE1T44+HjP4O4QZkZA5QdeEVUZv+X8HFulJfz5Uh1DZDpY5d+MS/Ot0Va/
-zCx3O/1fq+g4CRi+hEQKT0padOjBIIj7xBAn1OaHm2U18En5QJCr4LG9TIYOUVCN
-e/hYN28h4a06+sFmX+WMHw==
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC2m29D5rNwkk5m
+D2PQHXwt+rU+DfvOWGs3SkXcTO9qmAP7gvQgG6XabQ3mdnygYQ8eoYTsSKuJ3wQK
+6FHmdBjr4bIMaflFkTbNVTuvt6suqUU/iVQMvz+pjAtVmm5e6sqfNChH49RBThLW
+0liprDC0k9rd3B4L6+loTSedOOeF1yUqpnozkuejRbWqGDg8FOYaXqmlNyAmmRdB
+m6gqKEqOg815VUrkpeLq3KmaW6kPw9oSPfLS3GXhNbGXF6rYwLgG9uizCueoDgdG
+OXf4r3ep7acNyB6s9a8cNkQVvrsz+ptFk29ns0U3VCr4ET98LCwtQPh5rWDG/3+2
+qoeK48wHAgMBAAECggEAK7lvPH6Gs+tMe3Ku7zvIKshP0qKNi1yvm4cc0EHZyBfL
+SFOUegW0wmb/f5IaiFqFQMvjJKLH9FTixmvXhIuDFiQuOnu7lNVPHn6MsqgThLJC
+YxLSfdTjfQkMA7zdNbwZtWJLTN94SQTVTPwD/+i7ptmKfDpDNY6RDoj+9c4U3f58
+oFNl8W3wrOou/QrH9qVd+6auOS6KnE241bfQ+hpvVTf0NRxqxXif2y1wiMtU9B5V
+abPT9hRPpUGhnqDMkcuVlE+QgDfK+7bVwHoyGYESC3/BXL5ycxfXP7UPGFycKTOt
+Wt3BuHo7sDLwsHBYeuf7Qi1ufJBGnDVvzQxhSjDo8QKBgQDESm1iFQjbHq/byqsa
+jaEgwd3mQ7Ep3TFnHikKGsD1WAkOTj6TLVTjQrdLl4pk1gei7ARXSdZnhar/j9Xy
+xw5rHoA9o2/8+3eCdvNcQjETeGXDmBXFd4IXtU4qo7LjUKG6MAVcmg4UJXmPMHnC
+JDmivL+roO7XeB5/++nTaJ+n1wKBgQDuJ3B3UdbLTpTsOt4HqM1nSBjZHOE7QTO6
+KgLujWs9scGQogdT51IWGWwZZpGVJkr/wZMmW1EOfZVmLKP2yPGdgboN5maJ8WjX
+apArn5pidHftkOT5bnI9bp4voAGbMEKLiyQbhve6LYkwhSuw8GoMDRZcwrVl4Bnk
+Z5NF6yO3UQKBgEJUbDYSqZVx/zcke0FTzrkFCfj/suRUrJcN6AxUEhRWFWlSI28U
+iHTrXIkcwlVkxdvWKXldqCf/UVNexYtunH6yJd+uVO+GAlKB46avb2oG60x3HhRG
+WB2u1KUwAAk0fBIwm/84x70jFLrARMTH/PnzEknq7gq9uoDBHbikyB6tAoGBAOsw
+VbfwQVA8BYQZSoWD5X12zNs00xViecQCkyykymB9+CtuaBArJHyglImtKl6CF5Tl
+xP0fNzg5O15Q/YfMwBeNMoFhpKfbmW8LVN9P2fYbEQiyi/3sXbNfV6auvIdWrJEE
+Ux9ANctOBuq8yP4PHptSHWB0BRJbsxZGV0G4SmhRAoGAIy+yPaE8RpNiMMSKbZbZ
+pxXdQrQgs6yAHMxx+f6ZYM86VLJi24oE1yrW+DKNwFcwphykOanMzSGcVGATRVXD
+YG9zDEV9ibgo77M0MbN/WNGqRlebFxzyUNLGkuFuSmiZrIdq7AeTtTwdIlJrJwza
+zo1jOCNHx+CWN/nrRewAQI0=
 -----END PRIVATE KEY-----`;
 
 const config: PrismaticConfig = {
-  refreshToken: 'mEOyVjwMgBTq8Fn-eSrLdSHdsBqluzJdkwuQ8ZSNlWMKf',
+  refreshToken: 'QbhLwY8kSGb819O7E89yzXfeoQiDcJQj69JBZ6mD7bavT',
   prismaticUrl: 'https://app.prismatic.io',
-  sub: 'example.customer@Acme SaaS-customer.com',
-  organization: 'T3JnYW5pemF0aW9uOmEzMzcxNDg1LTdjNmUtNDVmZC04MzBlLThkMjIxMzEzNTJmYg==',
+  sub: 'example.customer@Acme Co-customer.com',
+  organization: 'T3JnYW5pemF0aW9uOjA1MWQxOWMzLTc2ODctNGM3Yy05NTYxLTg3YWYzNWU3YmM5OA==',
   customer: '123456',
-  name: 'Acme SaaS',
+  name: 'Acme Co',
   signingKey,
   role: 'admin'
 };
 export const customers = [
   {
-    "id": "Q3VzdG9tZXI6ZDkyYjU2MmEtNmU0NC00YTg2LWExNGYtYjIyMDZjZDMxZTQz",
-    "name": "Innovative Exports LLC"
+    "id": "Q3VzdG9tZXI6OTIxNDUxODUtM2U0Ny00OTU2LWI1YWEtODZkYWU3NmJmZDIz",
+    "name": "Customer Co"
   },
   {
-    "id": "Q3VzdG9tZXI6MjIxODE5MWEtYTg4Zi00YTRmLTg3NmYtZjUzNTA0NTUyMjYz",
-    "name": "Commerce Co"
+    "id": "Q3VzdG9tZXI6MTcxNjljOTgtYmRjYS00ZmViLTg2ZTQtOTI4MjQzM2YzZGEx",
+    "name": "Quantum Leap Technologies"
   },
   {
-    "id": "Q3VzdG9tZXI6N2Q1ODA2ZjEtYzljNy00NTU1LTlmYjMtNzE0YmUyOGZmNjE1",
-    "name": "Internal"
+    "id": "Q3VzdG9tZXI6NGVjMGUzOGEtZmZjZC00MWQzLWExZTAtZjgwZTdmNWY4ODUz",
+    "name": "Progix Inc"
   }
 ];
 

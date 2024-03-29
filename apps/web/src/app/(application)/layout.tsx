@@ -1,6 +1,9 @@
 import Navbar from "@/components/application/nav-bar";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "../globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Application",
@@ -14,7 +17,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html className="h-screen" lang="en" suppressHydrationWarning>
-      <body className="h-full font-sans antialiased">
+      <body className={`h-full antialiased ${inter.className}`}>
         <nav className="border-b border-border">
           <Navbar />
         </nav>

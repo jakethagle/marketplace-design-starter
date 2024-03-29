@@ -20,8 +20,8 @@ export default function EmbeddediFrame({
         selector: "#prismatic-embedded",
         screenConfiguration: {
           initializing: {
-            background: "#FFFFFF",
-            color: "#000000",
+            background: "#F7F8F9",
+            color: "#F7F8F9",
           },
           marketplace: { configuration: "allow-details" },
           configurationWizard: {
@@ -39,11 +39,12 @@ export default function EmbeddediFrame({
         selector: "#prismatic-embedded",
         screenConfiguration: {
           initializing: {
-            background: "#FFFFFF",
-            color: "#000000",
+            background: "#F7F8F9",
+            color: "#F7F8F9",
           },
           instance: {
             hideBackToMarketplace: true,
+            hideTabs: ["Monitors"],
           },
         },
       });
@@ -53,8 +54,8 @@ export default function EmbeddediFrame({
         selector: "#prismatic-embedded",
         screenConfiguration: {
           initializing: {
-            background: "#FFFFFF",
-            color: "#000000",
+            background: "#F7F8F9",
+            color: "#F7F8F9",
           },
         },
       });
@@ -64,8 +65,8 @@ export default function EmbeddediFrame({
         selector: "#prismatic-embedded",
         screenConfiguration: {
           initializing: {
-            background: "#FFFFFF",
-            color: "#000000",
+            background: "#F7F8F9",
+            color: "#F7F8F9",
           },
           dashboard: {
             hideTabs: ["Marketplace", "Integrations"],
@@ -78,8 +79,8 @@ export default function EmbeddediFrame({
         selector: "#prismatic-embedded",
         screenConfiguration: {
           initializing: {
-            background: "#FFFFFF",
-            color: "#000000",
+            background: "#F7F8F9",
+            color: "#F7F8F9",
           },
           dashboard: {
             hideTabs: ["Marketplace", "Integrations"],
@@ -92,7 +93,7 @@ export default function EmbeddediFrame({
   }, [authenticated, mode, integration]);
 
   return authenticated ? (
-    <div className="h-full" id="prismatic-embedded" />
+    <div className="h-full first-of-type" id="prismatic-embedded" />
   ) : (
     <LoadingSpinner />
   );
