@@ -126,8 +126,8 @@ export default function Layout({
                 src="/favicon.ico"
               />
             </a>
-            <h2 className="text-lg font-medium text-center ml-2">
-              {prismaticConfig.name}
+            <h2 className="text-3xl font-medium text-center ml-4">
+              {prismaticConfig.name?.replaceAll("Demo", "")}
             </h2>
           </div>
           <div className="flex lg:hidden">
@@ -142,7 +142,8 @@ export default function Layout({
               <Bars3Icon aria-hidden="true" className="h-6 w-6" />
             </button>
           </div>
-          <div className="hidden lg:flex lg:gap-x-12">
+          <div className="flex items-center">
+          <div className="hidden lg:flex lg:gap-x-12 mr-12">
             {navigation.map((item) => (
               <a
                 className="text-sm font-semibold leading-6 text-gray-900"
@@ -159,6 +160,7 @@ export default function Layout({
                 Login <span aria-hidden="true">&rarr;</span>
               </Button>
             </Link>
+          </div>
           </div>
         </nav>
         <Dialog
@@ -216,7 +218,7 @@ export default function Layout({
       {/* Footer */}
       <footer
         aria-labelledby="footer-heading"
-        className="mt-32 bg-primary/70 sm:mt-56"
+        className="mt-32 bg-muted-foreground/80"
       >
         <h2 className="sr-only" id="footer-heading">
           Footer

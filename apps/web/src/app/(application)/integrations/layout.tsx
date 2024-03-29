@@ -6,10 +6,10 @@ export default function Layout({
   children: JSX.Element;
 }): JSX.Element {
   return (
-    <div className="h-full px-0 mx-auto max-w-[1800px] lg:flex lg:gap-x-16 lg:px-8">
-      <aside className="flex overflow-x-auto border-b border-gray-900/5 py-4 lg:block lg:w-48 lg:flex-none lg:border-0 lg:py-16">
-        <div className="hidden lg:block text-base capitalize font-semibold text-muted-foreground pb-4">
-          Integration Hub
+    <div className="h-full px-0 lg:flex">
+      <aside className="flex overflow-x-auto py-4 lg:block lg:flex-none lg:py-16 w-72 drop-shadow-md bg-background">
+        <div className="hidden lg:block text-base capitalize font-semibold text-muted-foreground pb-4 pl-4">
+          <p className="text-2xl">Integration Hub</p>
         </div>
         <IntegrationHubNav />
       </aside>

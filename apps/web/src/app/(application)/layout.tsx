@@ -1,6 +1,8 @@
 import Navbar from "@/components/application/nav-bar";
 import type { Metadata } from "next";
 import "../globals.css";
+import { Inter } from "next/font/google";
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Application",
@@ -14,11 +16,11 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html className="h-screen" lang="en" suppressHydrationWarning>
-      <body className="h-full font-sans antialiased">
-        <nav className="border-b border-border">
+      <body className={`h-full antialiased ${inter.className}`}>
+        <nav className="border-b border-border pb-4 drop-shadow-md">
           <Navbar />
         </nav>
-        <main className="h-[calc(100%_-_3.75rem)]">{children}</main>
+        <main className="h-[calc(100%_-_3.75rem)]" style={{backgroundColor: "#F7F8F9"}}>{children}</main>
       </body>
     </html>
   );

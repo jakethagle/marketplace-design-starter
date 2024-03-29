@@ -42,7 +42,13 @@ const usePrismaticAuth = (): AuthConfig => {
     if (token) {
       const authenticate = async () => {
         if (!init) {
-          prismatic.init();
+          prismatic.init({
+            fontConfiguration: {
+              google: {
+                families: ["Inter"]
+              }
+            }
+          });
           setInit(true);
         }
         await prismatic.authenticate({ token });
