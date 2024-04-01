@@ -1,3 +1,7 @@
+export enum Role {
+  User = "user",
+  Admin = "admin",
+}
 export interface PrismaticConfig {
   /** Prismatic URL. Defaults to US commercial https://app.prismatic.io. Can be overridden for custom domains or other regions */
   prismaticUrl?: string;

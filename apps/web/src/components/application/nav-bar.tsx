@@ -19,7 +19,7 @@ const navigation = [
   { name: "Home", href: "/", segment: null },
   {
     name: "Integrations",
-    href: "/integrations",
+    href: "/integrations/marketplace",
     segment: "integrations",
   },
   { name: "Example", href: "/example", segment: "example" },
