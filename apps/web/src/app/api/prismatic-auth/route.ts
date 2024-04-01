@@ -1,7 +1,10 @@
+import { getRole } from "@/lib/server";
 import { NextResponse } from "next/server";
 import { getToken } from "../../../prismatic/utils";
 
-export function GET(): NextResponse {
-  const token = getToken();
+export async function GET(): Promise<NextResponse> {
+  const role = await getRole();
+  const token = getToken(role);
+
   return NextResponse.json({ token });
 }

@@ -41,6 +41,9 @@ importers:
       '@tailwindcss/aspect-ratio':
         specifier: ^0.4.2
         version: 0.4.2(tailwindcss@3.3.5)
+      jose:
+        specifier: ^5.2.3
+        version: 5.2.3
       jsonwebtoken:
         specifier: ^9.0.2
         version: 9.0.2
@@ -1273,7 +1276,7 @@ packages:
     resolution: {integrity: sha512-Jv69RfmT1GiMB4kKcUkifOgMdP7o6ABC7FZ6pR9W7+gxkaREhKJQ3QFLPNEWF9/+/ETSWGMI6zv/wtV3LuNG0Q==}
     dependencies:
       '@prismatic-io/spectral': 7.9.0
-      '@prismatic-io/translations': 1.9.2
+      '@prismatic-io/translations': 1.11.5
       lodash.merge: 4.6.2
       url-join: 5.0.0
     transitivePeerDependencies:
@@ -1298,8 +1301,8 @@ packages:
       - debug
     dev: false
 
-  /@prismatic-io/translations@1.9.2:
-    resolution: {integrity: sha512-HYn5erclVgwChDB/Bwi+vDxPCEADZNVFuDVcw3sE5Q16O66t8cuFDsH/5detd+VWMB+4b91zN/mMxAtYKXwXaw==}
+  /@prismatic-io/translations@1.11.5:
+    resolution: {integrity: sha512-SdLug4CCgSuu/SQJ1/329rDqmYOtR01Tuc67o0+kLDnPP5meo9EvjHf63OdNEb9dgR9U2GLfoREik+pG4zAUxg==}
     dev: false
 
   /@rollup/rollup-android-arm-eabi@4.5.2:
@@ -4410,6 +4413,10 @@ packages:
   /jju@1.4.0:
     resolution: {integrity: sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==}
     dev: true
+
+  /jose@5.2.3:
+    resolution: {integrity: sha512-KUXdbctm1uHVL8BYhnyHkgp3zDX5KW8ZhAKVFEfUbU2P8Alpzjb+48hHvjOdQIyPshoblhzsuqOwEEAbtHVirA==}
+    dev: false
 
   /joycon@3.1.1:
     resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}

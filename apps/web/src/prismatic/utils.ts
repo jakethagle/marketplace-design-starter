@@ -1,7 +1,7 @@
 import { sign } from "jsonwebtoken";
 import config from "./constants/config";
 
-export function getToken(): string {
+export function getToken(role?: string): string {
   const currentTime = Math.floor(Date.now() / 1000);
   const token = sign(
     {
@@ -13,10 +13,10 @@ export function getToken(): string {
       nbf: currentTime,
       iat: currentTime,
       exp: currentTime + 60 * 60 * 4, // 4 hours from now
-      role: config.role,
+      role: role ? role : config.role,
     },
     config.signingKey, // Store this somewhere safe
-    { algorithm: "RS256" }
+    { algorithm: "RS256" },
   );
   return token;
 }

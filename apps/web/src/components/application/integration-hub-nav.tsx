@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 
-function isActivePath(pathName: string, href: string) {
+function isActivePath(pathName: string, href: string): boolean {
   const urlParts = href.split("/");
   if (urlParts.length > 2) {
     return pathName.startsWith(href);
