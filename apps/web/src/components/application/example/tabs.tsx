@@ -15,11 +15,7 @@ export interface TabProp {
   key: string;
 }
 
-export default function ExamplePageTabs({
-  tabs,
-}: {
-  tabs: TabProp[];
-}): JSX.Element {
+export default function TabGroup({ tabs }: { tabs: TabProp[] }): JSX.Element {
   return (
     <Suspense fallback={null}>
       <div className=" w-full h-full lg:col-span-4 lg:mt-0 ">

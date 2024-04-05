@@ -1,24 +1,26 @@
-import { classNames } from "@/lib/utils";
 import { Combobox as HeadlessComboBox } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
+import { classNames } from "../lib/utils";
 
 export interface Option {
   key: string;
   label: string;
 }
+
 export default function Combobox({
   options,
+  selected,
   label,
   onChange,
 }: {
   options: Option[];
-  label: string;
-  selected?: Option;
+  selected: Option;
   onChange: (value: Option) => void;
+  label?: string;
 }): JSX.Element {
   const [query, setQuery] = useState("");
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(selected);
 
   const filtereditems =
     query === ""
@@ -29,9 +31,10 @@ export default function Combobox({
 
   return (
     <HeadlessComboBox
+      as="div"
       onChange={(value) => {
         setSelectedItem(value);
-        onChange(value as unknown as Option);
+        onChange(value);
       }}
       value={selectedItem}
     >
@@ -66,18 +69,18 @@ export default function Combobox({
                 key={item.key}
                 value={item}
               >
-                {({ active, selected }) => (
+                {({ active, selected: s }) => (
                   <>
                     <span
                       className={classNames(
                         "block truncate",
-                        selected ? "font-semibold" : "",
+                        s ? "font-semibold" : "",
                       )}
                     >
                       {item.label}
                     </span>
 
-                    {selected ? (
+                    {s ? (
                       <span
                         className={classNames(
                           "absolute inset-y-0 right-0 flex items-center pr-4",

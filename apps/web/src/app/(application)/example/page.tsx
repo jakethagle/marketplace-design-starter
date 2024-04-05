@@ -1,7 +1,7 @@
 import IntegrationTable from "@/components/application/example/integration-table";
 import ExamplePageHeader from "@/components/application/example/page-header";
 import type { TabProp } from "@/components/application/example/tabs";
-import ExamplePageTabs from "@/components/application/example/tabs";
+import TabGroup from "@/components/application/example/tabs";
 import LoadingSpinner from "@/components/common/loading-spinner";
 import { prismaticMarketplace } from "@/prismatic/lib";
 import type { Instance } from "@repo/prismatic-js";
@@ -102,7 +102,7 @@ export default async function ExamplePage({
       <div className="pb-10">
         <ExamplePageHeader integration={integration} />
       </div>
-      <ExamplePageTabs tabs={_tabs} />
+      <TabGroup tabs={_tabs} />
     </Suspense>
   );
 }

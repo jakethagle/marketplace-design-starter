@@ -1,5 +1,5 @@
 import prismaticConfig from "@/prismatic/constants/config";
-import type { Integration, User } from "@repo/prismatic-js";
+import type { Component, Integration, User } from "@repo/prismatic-js";
 import {
   createPrismaticClient,
   getAccessToken,
@@ -7,6 +7,27 @@ import {
   isUser,
 } from "@repo/prismatic-js";
 
+export async function getComponents(): Promise<{
+  nodes: Component[];
+}> {
+  const { client } = await prismaticMarketplace();
+  const { components } = await client.query({
+    __name: "components",
+    components: {
+      __args: {},
+      nodes: {
+        __scalar: true,
+        actions: {
+          nodes: {
+            __scalar: true,
+            __typename: true,
+          },
+        },
+      },
+    },
+  });
+  return components as { nodes: Component[] };
+}
 export async function getMarketplaceIntegrations(): Promise<{
   nodes: Integration[];
 }> {

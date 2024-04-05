@@ -126,13 +126,13 @@ export default function Layout({
                 src="/favicon.ico"
               />
             </a>
-            <h2 className="text-lg font-medium text-center ml-2">
-              {prismaticConfig.name}
+            <h2 className="text-3xl font-semibold tracking-tight leading-7 text-center ml-4">
+              {prismaticConfig.name?.replaceAll("Demo", "")}
             </h2>
           </div>
           <div className="flex lg:hidden">
             <button
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground bg-background"
               onClick={() => {
                 setMobileMenuOpen(true);
               }}
@@ -168,10 +168,13 @@ export default function Layout({
           open={mobileMenuOpen}
         >
           <div className="fixed inset-0 z-50" />
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-[100] w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <a className="-m-1.5 p-1.5" href="/#">
+              <a className="-m-1.5 p-1.5" href="/">
                 <span className="sr-only">Your Company</span>
+                <span className="text-xl font-semibold tracking-tight leading-7">
+                  {prismaticConfig.name?.replaceAll("Demo", "")}
+                </span>
               </a>
               <button
                 className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -216,7 +219,7 @@ export default function Layout({
       {/* Footer */}
       <footer
         aria-labelledby="footer-heading"
-        className="mt-32 bg-primary/70 sm:mt-56"
+        className="mt-32 bg-muted-foreground/80"
       >
         <h2 className="sr-only" id="footer-heading">
           Footer
@@ -233,7 +236,7 @@ export default function Layout({
                     {footerNavigation.solutions.map((item) => (
                       <li key={item.name}>
                         <a
-                          className="text-sm leading-6 text-gray-300 hover:text-primary-foreground"
+                          className="text-sm leading-6 text-muted hover:text-primary"
                           href={item.href}
                         >
                           {item.name}
@@ -250,7 +253,7 @@ export default function Layout({
                     {footerNavigation.support.map((item) => (
                       <li key={item.name}>
                         <a
-                          className="text-sm leading-6 text-gray-300 hover:text-primary-foreground"
+                          className="text-sm leading-6 text-muted hover:text-primary-foreground"
                           href={item.href}
                         >
                           {item.name}
@@ -269,7 +272,7 @@ export default function Layout({
                     {footerNavigation.company.map((item) => (
                       <li key={item.name}>
                         <a
-                          className="text-sm leading-6 text-gray-300 hover:text-primary-foreground"
+                          className="text-sm leading-6 text-muted hover:text-primary-foreground"
                           href={item.href}
                         >
                           {item.name}
@@ -286,7 +289,7 @@ export default function Layout({
                     {footerNavigation.legal.map((item) => (
                       <li key={item.name}>
                         <a
-                          className="text-sm leading-6 text-gray-300 hover:text-primary-foreground"
+                          className="text-sm leading-6 text-muted hover:text-primary-foreground"
                           href={item.href}
                         >
                           {item.name}
@@ -298,12 +301,12 @@ export default function Layout({
               </div>
             </div>
           </div>
-          <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24 lg:flex lg:items-center lg:justify-between">
+          <div className="mt-16 border-t border-border/10 pt-8 sm:mt-20 lg:mt-24 lg:flex lg:items-center lg:justify-between">
             <div>
               <h3 className="text-sm font-semibold leading-6 text-primary-foreground">
                 Subscribe to our newsletter
               </h3>
-              <p className="mt-2 text-sm leading-6 text-gray-300">
+              <p className="mt-2 text-sm leading-6 text-muted">
                 The latest news, articles, and resources, sent to your inbox
                 weekly.
               </p>
@@ -323,7 +326,7 @@ export default function Layout({
               />
               <div className="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
                 <button
-                  className="flex w-full items-center justify-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="flex w-full items-center justify-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                   type="submit"
                 >
                   Subscribe
@@ -335,7 +338,7 @@ export default function Layout({
             <div className="flex space-x-6 md:order-2">
               {footerNavigation.social.map((item) => (
                 <a
-                  className="text-gray-500 hover:text-gray-400"
+                  className="text-muted hover:text-gray-400"
                   href={item.href}
                   key={item.name}
                 >
@@ -344,7 +347,7 @@ export default function Layout({
                 </a>
               ))}
             </div>
-            <p className="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
+            <p className="mt-8 text-xs leading-5 text-muted md:order-1 md:mt-0">
               &copy; 2020 Your Company, Inc. All rights reserved.
             </p>
           </div>

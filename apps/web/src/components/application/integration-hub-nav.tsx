@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 
-function isActivePath(pathName: string, href: string) {
+function isActivePath(pathName: string, href: string): boolean {
   const urlParts = href.split("/");
   if (urlParts.length > 2) {
     return pathName.startsWith(href);
@@ -42,7 +42,7 @@ export function IntegrationHubNav(): JSX.Element {
   const pathName = usePathname();
 
   return (
-    <nav className="flex-none px-4 sm:px-6 lg:px-0">
+    <nav className="flex-none px-4 sm:px-6">
       <ul className="flex gap-x-3 gap-y-1 whitespace-nowrap lg:flex-col">
         {navigation.map((item) => (
           <li key={item.name}>

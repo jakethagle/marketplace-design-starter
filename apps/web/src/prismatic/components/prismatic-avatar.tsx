@@ -15,8 +15,6 @@ async function fetchImage(
     },
   );
   const data = (await response.json()) as { url: string };
-  // eslint-disable-next-line no-console -- testing
-  console.log(data);
   return data as { url: string };
 }
 /**
@@ -28,8 +26,6 @@ export function PrismaticAvatar({ avatarUrl }: { avatarUrl: unknown }) {
   const [src, setSrc] = useState("");
   const { authenticated, token } = usePrismaticAuth();
   useEffect(() => {
-    // eslint-disable-next-line no-console -- testing
-    console.log(avatarUrl, authenticated, token);
     if (avatarUrl && authenticated && token) {
       void fetchImage(avatarUrl, token)
         .then((data) => {
@@ -37,7 +33,7 @@ export function PrismaticAvatar({ avatarUrl }: { avatarUrl: unknown }) {
         })
         .catch((error) => {
           setSrc("");
-          // eslint-disable-next-line no-console -- testing
+          // eslint-disable-next-line no-console -- log error
           console.error(error);
         });
     }

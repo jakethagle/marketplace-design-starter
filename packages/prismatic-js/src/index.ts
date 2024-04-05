@@ -13,7 +13,9 @@ export function createPrismaticClient(options: PrismaticClientOptions): Client {
     headers: {
       Authorization: `Bearer ${options.accessToken}`,
     },
+    cache: "no-cache",
   });
 }
 
 export * from "./util/auth";
+export * from "./util/queries";

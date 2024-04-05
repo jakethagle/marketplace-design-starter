@@ -1,5 +1,9 @@
+"use client";
+import { setRole } from "@/lib/actions";
+import { getRoleFromCookie } from "@/lib/client";
 import prismatic from "@prismatic-io/embedded";
 import { useEffect, useState } from "react";
+import type { Role } from "../types";
 
 interface UserInfoProps {
   authenticatedUser: {
@@ -10,6 +14,8 @@ interface UserInfoProps {
 }
 interface AuthConfig {
   authenticated: boolean;
+  handleSetRole: (newRole: Role) => Promise<void>;
+  role?: Role;
   token?: string;
   userinfo?: UserInfoProps;
 }
@@ -36,44 +42,62 @@ const usePrismaticAuth = (): AuthConfig => {
   const [authenticated, setAuthenticated] = useState<boolean>(false);
   const [init, setInit] = useState<boolean>(false);
   const [token, setToken] = useState<string>();
+  const [activeRole, setActiveRole] = useState<Role>();
 
   useEffect(() => {
-    let mounted = true;
-    if (token) {
-      const authenticate = async () => {
-        if (!init) {
-          prismatic.init();
-          setInit(true);
-        }
-        await prismatic.authenticate({ token });
+    if (authenticated || !activeRole) {
+      const role = getRoleFromCookie();
+      setActiveRole(role);
+    }
+  }, [activeRole, authenticated]);
 
-        if (mounted) {
-          setAuthenticated(true);
-        }
-        const result = await getUserInfo();
-        if (mounted) {
-          setUserinfo(result);
-        }
-        return () => {
-          mounted = false;
-        };
-      };
+  const handleSetRole = async (newRole: Role): Promise<void> => {
+    if (newRole !== activeRole) {
+      await setRole(newRole);
+      setAuthenticated(false);
+    }
+  };
+
+  useEffect(() => {
+    const getToken = async () => {
+      const result = await fetch(`/api/prismatic-auth`);
+      const userToken = (await result.json()) as { token: string };
+      setToken(userToken.token);
+    };
+
+    const authenticate = async (): Promise<void> => {
+      if (!init) {
+        prismatic.init({
+          fontConfiguration: {
+            google: {
+              families: ["Inter"],
+            },
+          },
+        });
+        setInit(true);
+      }
+
+      if (!token) return;
+
+      await prismatic.authenticate({ token });
+      setAuthenticated(true);
+      setActiveRole(getRoleFromCookie());
+      const result = await getUserInfo();
+      setUserinfo(result);
+    };
+    if (token && !authenticated) {
       void authenticate();
-    } else {
-      const getToken = async () => {
-        const result = await fetch("/api/prismatic-auth");
-
-        const userToken = (await result.json()) as { token: string };
-        setToken(userToken.token);
-      };
+    } else if (!token || !authenticated) {
       void getToken();
     }
-  }, [token, init]);
+  }, [token, init, authenticated, activeRole]);
 
   return {
     authenticated,
     token,
     userinfo,
+    handleSetRole,
+    role: activeRole,
   };
 };
 
