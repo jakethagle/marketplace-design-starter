@@ -42,6 +42,9 @@ export default function EmbeddediFrame({
             background: "#FFFFFF",
             color: "#000000",
           },
+          marketplace: {
+            triggerDetailsConfiguration: "hidden"
+          }
           instance: {
             hideBackToMarketplace: true,
           },
