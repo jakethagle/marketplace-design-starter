@@ -33,7 +33,7 @@ export default function EmbeddediFrame({
           },
           marketplace: { configuration: "allow-details" },
           configurationWizard: {
-            triggerDetailsConfiguration: "default-open",
+            triggerDetailsConfiguration: "hidden",
           },
         },
       });
