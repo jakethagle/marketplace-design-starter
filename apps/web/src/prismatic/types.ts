@@ -26,3 +26,17 @@ export interface PrismaticConfig {
   /** Refresh token for the user. This is only used for admin operations (not embedded marketplace users). */
   refreshToken?: string;
 }
+
+export interface CustomerConfig {
+  name: string;
+  embeddedDesigner?: boolean;
+  externalId?: string;
+}
+export interface DynamicMarketingConfig {
+  organization: {
+    useCaseConnector?: string;
+    ctaStatement?: string;
+    ctaButtonText?: string;
+    ctaSubTitle?: string;
+  };
+}

@@ -1,6 +1,10 @@
 "use client";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import HeroImage from "./hero-image";
+import * as dynamicMarketingConfig from "../../dynamicMarketingConfig.json"
+import type { DynamicMarketingConfig  } from "@/prismatic/types";
+
+const marketingConfig = dynamicMarketingConfig as DynamicMarketingConfig;
 
 export default function HeroPageSection(): JSX.Element {
   return (
@@ -36,10 +40,13 @@ export default function HeroPageSection(): JSX.Element {
       </svg>
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-40">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
+        { 
+             marketingConfig.organization.useCaseConnector ? 
+             (
           <div className="flex">
             <div className="relative flex items-center gap-x-4 rounded-full px-4 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              <span className="font-semibold text-primary">
-                {"{INTEGRATION}"}is live
+             <span className="font-semibold text-primary">
+                {`${marketingConfig.organization.useCaseConnector} integration is live`}
               </span>
               <span aria-hidden="true" className="h-4 w-px bg-gray-900/10" />
               <a className="flex items-center gap-x-1" href="/#">
@@ -52,19 +59,23 @@ export default function HeroPageSection(): JSX.Element {
               </a>
             </div>
           </div>
+             )
+              : <span/>
+            }
           <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Unlock your business potential through integration.
+            {marketingConfig.organization.ctaStatement ? `${marketingConfig.organization.ctaStatement}` : `Unlock your business potential through integration.`}
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Easily connect your favorite tools and applications through our
-            self-serve marketplace of integrations.
+          {marketingConfig.organization.ctaSubTitle ? `${marketingConfig.organization.ctaSubTitle}` : `Easily connect your favorite tools and applications through our
+            self-serve marketplace of integrations.`}
+            
           </p>
           <div className="mt-10 flex items-center gap-x-6">
             <a
               className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               href="/#"
             >
-              Get started
+              {marketingConfig.organization.ctaButtonText ? `${marketingConfig.organization.ctaButtonText}` : `Get Started.`}
             </a>
             <a
               className="text-sm font-semibold leading-6 text-gray-900"
