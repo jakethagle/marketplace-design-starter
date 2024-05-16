@@ -28,6 +28,30 @@ export async function getComponents(): Promise<{
   });
   return components as { nodes: Component[] };
 }
+export async function getMarketplaceIntegration(id: string): Promise<{
+  integration: Integration;
+}> {
+  const { client } = await prismaticMarketplace();
+  const { marketplaceIntegration } = await client.query({
+    __name: "MarketplaceIntegration",
+    marketplaceIntegration: {
+      __args: { id },
+      __typename: true,
+      category: true,
+      createdAt: true,
+      description: true,
+      documentation: true,
+      id: true,
+      name: true,
+      updatedAt: true,
+      avatarUrl: true,
+    },
+  });
+  return { integration: marketplaceIntegration } as {
+    integration: Integration;
+  };
+  // return marketplaceIntegration as { nodes: Integration[] };
+}
 export async function getMarketplaceIntegrations(): Promise<{
   nodes: Integration[];
 }> {

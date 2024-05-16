@@ -1,5 +1,6 @@
 "use client";
 import LoadingSpinner from "@/components/common/loading-spinner";
+import type { Filters, Translation } from "@prismatic-io/embedded";
 import prismatic from "@prismatic-io/embedded";
 import { useEffect } from "react";
 import usePrismaticAuth from "../hooks/use-prismatic";
@@ -7,15 +8,21 @@ import usePrismaticAuth from "../hooks/use-prismatic";
 export default function EmbeddediFrame({
   mode,
   integration,
+  filters,
+  translations,
 }: {
   mode: "Marketplace" | "Integration" | "Designer" | "Dashboard" | "Logs";
   integration?: string;
+  filters?: Filters;
+  translations?: Translation;
 }): JSX.Element {
   const { authenticated } = usePrismaticAuth();
 
   useEffect(() => {
     if (authenticated && mode === "Marketplace") {
       prismatic.showMarketplace({
+        filters,
+        translation: translations,
         theme: "LIGHT",
         selector: "#prismatic-embedded",
         screenConfiguration: {

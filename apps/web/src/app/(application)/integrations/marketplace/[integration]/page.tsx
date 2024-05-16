@@ -1,11 +1,24 @@
 import Listing from "@/components/application/marketplace/listing";
+import { getMarketplaceIntegration } from "@/prismatic/lib";
 
-export default function ListingPage({
+export default async function ListingPage({
   params: { integration },
 }: {
   params: { integration: string };
-}): JSX.Element {
-  return <Listing item={{ ...defaultIntegration, key: integration }} />;
+}): Promise<JSX.Element> {
+  const marketplaceListing = await getMarketplaceIntegration(integration);
+  return (
+    <Listing
+      item={{
+        ...defaultIntegration,
+        name: marketplaceListing.integration.name,
+        key: marketplaceListing.integration.name,
+        imageSrc:
+          marketplaceListing.integration.avatarUrl ??
+          defaultIntegration.imageSrc,
+      }}
+    />
+  );
 }
 const defaultIntegration = {
   name: "Salesforce",

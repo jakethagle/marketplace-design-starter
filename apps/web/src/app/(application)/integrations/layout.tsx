@@ -6,9 +6,9 @@ export default function Layout({
   children: JSX.Element;
 }): JSX.Element {
   return (
-    <div className="h-full px-0 lg:flex">
-      <aside className="flex overflow-x-auto py-4 lg:block lg:flex-none lg:py-12 lg:w-72 lg:drop-shadow-md lg:bg-background">
-        <div className="hidden lg:block text-base capitalize font-semibold text-muted-foreground pb-4 pl-6">
+    <div className="h-full px-0 xl:flex">
+      <aside className="flex overflow-x-auto py-4 xl:block xl:flex-none xl:py-12 xl:w-72 xl:drop-shadow-sm xl:bg-background xl:h-full">
+        <div className="hidden xl:block text-base capitalize font-semibold text-muted-foreground pb-4 pl-6">
           <p className="text-xl">Integration Hub</p>
         </div>
         <IntegrationHubNav />

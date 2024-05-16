@@ -24,7 +24,10 @@ export default function Combobox({
     query === ""
       ? options
       : options.filter((option: Option) => {
-          return option.key.toLowerCase().includes(query.toLowerCase());
+          return (
+            option.label.toLowerCase().includes(query.toLowerCase()) ||
+            option.key.toLowerCase().includes(query.toLowerCase())
+          );
         });
 
   return (

@@ -1,7 +1,7 @@
 import Container from "@/components/common/container";
 import EmptyState from "@/components/application/empty-state";
 
-export default function Dashboard(): JSX.Element {
+export default function Dashboard(){
   return (
     <Container>
       <div className="pt-10">

@@ -10,56 +10,76 @@ import { PrismaticConfig } from '../types';
  */
 
 const signingKey = `-----BEGIN PRIVATE KEY-----
-MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC2m29D5rNwkk5m
-D2PQHXwt+rU+DfvOWGs3SkXcTO9qmAP7gvQgG6XabQ3mdnygYQ8eoYTsSKuJ3wQK
-6FHmdBjr4bIMaflFkTbNVTuvt6suqUU/iVQMvz+pjAtVmm5e6sqfNChH49RBThLW
-0liprDC0k9rd3B4L6+loTSedOOeF1yUqpnozkuejRbWqGDg8FOYaXqmlNyAmmRdB
-m6gqKEqOg815VUrkpeLq3KmaW6kPw9oSPfLS3GXhNbGXF6rYwLgG9uizCueoDgdG
-OXf4r3ep7acNyB6s9a8cNkQVvrsz+ptFk29ns0U3VCr4ET98LCwtQPh5rWDG/3+2
-qoeK48wHAgMBAAECggEAK7lvPH6Gs+tMe3Ku7zvIKshP0qKNi1yvm4cc0EHZyBfL
-SFOUegW0wmb/f5IaiFqFQMvjJKLH9FTixmvXhIuDFiQuOnu7lNVPHn6MsqgThLJC
-YxLSfdTjfQkMA7zdNbwZtWJLTN94SQTVTPwD/+i7ptmKfDpDNY6RDoj+9c4U3f58
-oFNl8W3wrOou/QrH9qVd+6auOS6KnE241bfQ+hpvVTf0NRxqxXif2y1wiMtU9B5V
-abPT9hRPpUGhnqDMkcuVlE+QgDfK+7bVwHoyGYESC3/BXL5ycxfXP7UPGFycKTOt
-Wt3BuHo7sDLwsHBYeuf7Qi1ufJBGnDVvzQxhSjDo8QKBgQDESm1iFQjbHq/byqsa
-jaEgwd3mQ7Ep3TFnHikKGsD1WAkOTj6TLVTjQrdLl4pk1gei7ARXSdZnhar/j9Xy
-xw5rHoA9o2/8+3eCdvNcQjETeGXDmBXFd4IXtU4qo7LjUKG6MAVcmg4UJXmPMHnC
-JDmivL+roO7XeB5/++nTaJ+n1wKBgQDuJ3B3UdbLTpTsOt4HqM1nSBjZHOE7QTO6
-KgLujWs9scGQogdT51IWGWwZZpGVJkr/wZMmW1EOfZVmLKP2yPGdgboN5maJ8WjX
-apArn5pidHftkOT5bnI9bp4voAGbMEKLiyQbhve6LYkwhSuw8GoMDRZcwrVl4Bnk
-Z5NF6yO3UQKBgEJUbDYSqZVx/zcke0FTzrkFCfj/suRUrJcN6AxUEhRWFWlSI28U
-iHTrXIkcwlVkxdvWKXldqCf/UVNexYtunH6yJd+uVO+GAlKB46avb2oG60x3HhRG
-WB2u1KUwAAk0fBIwm/84x70jFLrARMTH/PnzEknq7gq9uoDBHbikyB6tAoGBAOsw
-VbfwQVA8BYQZSoWD5X12zNs00xViecQCkyykymB9+CtuaBArJHyglImtKl6CF5Tl
-xP0fNzg5O15Q/YfMwBeNMoFhpKfbmW8LVN9P2fYbEQiyi/3sXbNfV6auvIdWrJEE
-Ux9ANctOBuq8yP4PHptSHWB0BRJbsxZGV0G4SmhRAoGAIy+yPaE8RpNiMMSKbZbZ
-pxXdQrQgs6yAHMxx+f6ZYM86VLJi24oE1yrW+DKNwFcwphykOanMzSGcVGATRVXD
-YG9zDEV9ibgo77M0MbN/WNGqRlebFxzyUNLGkuFuSmiZrIdq7AeTtTwdIlJrJwza
-zo1jOCNHx+CWN/nrRewAQI0=
+MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCUcw+ODT4XEfej
+Se42dmoM/TgYih++tDGrFGUjg6czrKQ/3LC7axuXurtl59yun5iKwhN1ZLlOZeK4
+yL6cVtSIUgxtO1uQvXUy1Ryqk/hznPgMDGJcBD7kCmgt7xuUVWJAit29P5NTS0/A
+nNow9ls4MvY4wxkvPZDp4UCWPDgDx1ZVuGGyjs6LjP6r3gIV9XBH46Iu/RCO+YAR
+amDIhNwm26arpCbvemj4kiAnAY7jMzl5JqcSYOrdNZJKz852NPthKcORUk0DgTWu
+8geg5CqRL4EZlUgI/3PU3x/rDzhjThREO+S1TxKhiylaL1QYCllg9SByKrVURC5J
+Glasf59/AgMBAAECggEAJV5viHlB64nM1lCKhDA70wg9QkQm6JkwtZm9OfrusJ3h
+fOf/nzY/rGrHuMfssBKh0jA3uMIBucABGjYCcZWUC7rnwOmDy8Q9h+3IuRHlpaja
+ciH98p7o+/u4rPN3dFgoEwpB9l1WJ04aheiWLmQdo2CExdYq9U7gt1dKLGd9TEnU
+A9XqCHoREa3A+k5BcwBKHg1WNc4DK0yFAANa8ZLknM0B7YCy1bfu3qADKtvANX88
+rijyWhXmEkOrKXJNAvDrTf4Q9T4TTN2OjsXE8EEwECYXOisX2crx1uWbF1YI2QF7
+WwD1MXqAJXFI275ilROhe5Z6GM1agrW3Ea/B6zYu5QKBgQDF655owm6SUg0rEFo5
+B+ILsUy8+Bfv4tnBfDrjftOr98oGQIZ8OxSPriTDcncIMzgIOZLmN+qgZkZG9V/1
+SGyE2cCgvUMXc/6a9xOtyYU3/vgaLR9qjjFvdhpDuoU3lSihLEQRMJhip9g0Clbb
+zj1GI1yEGpB4SjwGAoPrMgoIXQKBgQDAAwkJfzIcVxAbHHgop4JVXjcOIcO2CfyH
+1iTeS+/cSxF9vpEqhgz4jr6tVBPsv/0FS+9UZqqk/b1EWV0ItoRAg458yUos0UCW
+Gru2bRTwjHUALaL/XStkP17DTOkvRZRTBOhgIZmu6c9ppWu70jBY8xjkGzeG2OJq
+GEFIC2wZiwKBgHgT0GK8e7sYPtb+r85kAveXFPidCGDI39YsmcnF+4Qc7JvIcA9V
+BM97FuDhRGhcMsWCsKYuDJJOGpsYaaR10Sj0t5KN4POMs06vUmggmEt1zG6NK79J
+D6MRIzQuKH6lZyYJpi5LrlhEfr5r+3CV+sTf1VRsjXP9jdcTlZePH1kdAoGAIA1h
+qNAu0URHT/9En6S2wQFlN1qzjOPF3/cDWIhcle2CEfeJzAtshuFtOwnZ+Z9i4Ut3
+vCMXQUuKGKrCOP4evZY4ZuRDGZAks+nqg91ZrX4E2e7EUtR+tdFORFPGaTm4NNOQ
+5ts1CFnHYd9XSJchsveBpDJW5o+12/gIjbo6ZVkCgYAM9vK6CjIdSu/8DMHm4NqH
+c9EBSNwuNl92iFc/BEUpoYLQTXK1/c8CDskDwqma4LmiJirCvXsG65Rb1nXevKX5
+zxSj00rKdvJoXnLnB1E+CDVHlY0Wp7wjmu6TUOj3T8AR+u7lXrIeylUEW7zyclV5
+BnCF3u5JwpflnIPaiZTOqA==
 -----END PRIVATE KEY-----`;
 
 const config: PrismaticConfig = {
-  refreshToken: 'QbhLwY8kSGb819O7E89yzXfeoQiDcJQj69JBZ6mD7bavT',
+  refreshToken: 'xWVRQ5WvlME28b8WdVkg6elYzImldieZE4sDyO0jic-Ab',
   prismaticUrl: 'https://app.prismatic.io',
-  sub: 'example.customer@Acme Co-customer.com',
-  organization: 'T3JnYW5pemF0aW9uOjA1MWQxOWMzLTc2ODctNGM3Yy05NTYxLTg3YWYzNWU3YmM5OA==',
+  sub: 'example.customer@Acme Software Co-customer.com',
+  organization: 'T3JnYW5pemF0aW9uOjM3YjY3YmIyLTRlYmYtNGEyMC04ODNjLTY3NjMxOTNjYThlMQ==',
   customer: '123456',
-  name: 'Acme Co',
+  name: 'Acme Software Co',
   signingKey,
   role: 'admin'
 };
 export const customers = [
   {
-    "id": "Q3VzdG9tZXI6OTIxNDUxODUtM2U0Ny00OTU2LWI1YWEtODZkYWU3NmJmZDIz",
-    "name": "Customer Co"
+    "id": "Q3VzdG9tZXI6ZDY5ZGI5NjQtMWJhMC00YjIwLWE0YTUtODc5MjQ0OTk5Y2M4",
+    "name": "Roy Rogers"
   },
   {
-    "id": "Q3VzdG9tZXI6MTcxNjljOTgtYmRjYS00ZmViLTg2ZTQtOTI4MjQzM2YzZGEx",
-    "name": "Quantum Leap Technologies"
+    "id": "Q3VzdG9tZXI6NGNlM2Y5YTQtZjQ1MS00NjFhLWFlMzYtMDJjYWE3N2Y5YWFk",
+    "name": "Internal"
   },
   {
-    "id": "Q3VzdG9tZXI6NGVjMGUzOGEtZmZjZC00MWQzLWExZTAtZjgwZTdmNWY4ODUz",
-    "name": "Progix Inc"
+    "id": "Q3VzdG9tZXI6ZTJlN2Y2NjgtMjBmZi00MDViLTkzZDItNzU2ODg1NzA0ZDA5",
+    "name": "DSU"
+  },
+  {
+    "id": "Q3VzdG9tZXI6NDk2MzljNjYtMWU1YS00MGQ3LTlhMzItMTc5ZGQ4ZTViNDY2",
+    "name": "SDSU"
+  },
+  {
+    "id": "Q3VzdG9tZXI6MGI4OTk5ZjEtZWEyNS00ZDU1LTliZDQtMGQ4ZDIxODEyNTY4",
+    "name": "Another Software Co"
+  },
+  {
+    "id": "Q3VzdG9tZXI6OWM1MjcyY2QtNmI3Mi00OWJjLThjNDktZDhmODBiNWYzZWQz",
+    "name": "Acme Software"
+  },
+  {
+    "id": "Q3VzdG9tZXI6MTU1NzE0MTUtYWY3NS00ODljLWFkODgtN2Q3YzFmYTE2NTky",
+    "name": "FTL Rockets"
+  },
+  {
+    "id": "Q3VzdG9tZXI6M2Q1Y2MzMjYtMzYxNS00YWYyLWIwZjItZDRlZGFkMmQ2NjFj",
+    "name": "Portland Kickoff"
   }
 ];
 
