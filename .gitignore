@@ -28,10 +28,10 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+config.ts
 
 # turbo
 .turbo
 
 # ui
 dist/
-apps/web/src/prismatic/constants/config.ts
