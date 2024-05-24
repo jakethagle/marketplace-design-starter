@@ -4,17 +4,17 @@ API_KEY=$(prism me:token)
 API_ENDPOINT='https://app.prismatic.io/api/'
 
 QUERY='{
-  "query":
+    "query":
     "query { organization { id name }}"
 }'
 
 ORG=$(curl ${API_ENDPOINT} -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: bearer ${API_KEY}" \
-    --data "$(echo $QUERY)" | jq .data)
+--data "$(echo $QUERY)" | jq .data)
 
 CUSTOMERS_QUERY='{
-  "query":
+    "query":
     "query { customers(isSystem: false) { nodes { id name } }}"
 }'
 
@@ -23,7 +23,7 @@ CUSTOMERS_QUERY='{
 CUSTOMERS=$(curl ${API_ENDPOINT} -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: bearer ${API_KEY}" \
-    --data "$(echo $CUSTOMERS_QUERY)" | jq .data.customers.nodes)
+--data "$(echo $CUSTOMERS_QUERY)" | jq .data.customers.nodes)
 
 ORG_ID=$(echo $ORG | jq .organization.id | tr -d '"')
 ORG_NAME=$(echo $ORG | jq .organization.name | tr -d '"')
@@ -45,7 +45,7 @@ import { PrismaticConfig } from '../types';
  * Replace this with a value a signing key you get from https://app.prismatic.io/settings/embedded/
  */
 
-const signingKey = $BT$(prism organization:signingkeys:generate)$BT;
+const signingKey = $BT$(prism organization:signing-keys:generate)$BT;
 
 const config: PrismaticConfig = {
   refreshToken: '$(prism me:token --type refresh)',

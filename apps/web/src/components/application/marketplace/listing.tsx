@@ -1,5 +1,6 @@
 "use client";
 import { classNames } from "@/lib/utils";
+import { PrismaticAvatar } from "@/prismatic/components/prismatic-avatar";
 import { Tab } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import { Button } from "@repo/ui";
@@ -147,11 +148,7 @@ export function ListingCoverImage({
 }): JSX.Element {
   return (
     <div className="aspect-h-3 aspect-w-4 overflow-hidden rounded-lg bg-background">
-      <img
-        alt={item.imageAlt}
-        className="object-cover object-center"
-        src={item.imageSrc}
-      />
+      <PrismaticAvatar avatarUrl={item.imageSrc as unknown as string} />
     </div>
   );
 }

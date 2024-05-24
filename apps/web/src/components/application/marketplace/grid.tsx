@@ -220,7 +220,7 @@ export function Grid({ listings }: { listings: Integration[] }): JSX.Element {
           <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-3 sm:gap-y-10 lg:grid-cols-3">
             {listings.map((listing) => (
               <Link
-                href={`/integrations/marketplace/${listing.name.toLowerCase()}`}
+                href={`/integrations/marketplace/${listing.id}`}
                 key={listing.id}
               >
                 <div className="group relative" key={listing.id}>
@@ -276,7 +276,7 @@ export function MarketplaceGrid({
         <GridActions />
       </div>
       <section aria-labelledby="marketplace-headings" className="pb-24 pt-6">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
           <CategoryFilters categories={categories} filters={filters} />
           <Grid listings={listings} />
           <div className="mt-6 lg:col-start-2 lg:col-span-3 lg:mt-0">

@@ -3,7 +3,7 @@ import { Role } from "@/prismatic/types";
 
 export function getRoleFromCookie(): Role | undefined {
   if (!document.cookie) {
-    return;
+    return Role.Admin;
   }
   const cookieRole = document.cookie
     .split("; ")
@@ -11,5 +11,6 @@ export function getRoleFromCookie(): Role | undefined {
   if (cookieRole) {
     return cookieRole.split("=")[1] as Role;
   }
+
   return Role.Admin;
 }

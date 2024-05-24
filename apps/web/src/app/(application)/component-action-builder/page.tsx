@@ -7,5 +7,8 @@ export default async function DatasourceBuilder(): Promise<JSX.Element> {
   const { client } = await prismaticMarketplace();
   const { nodes: components } = await getComponents(client);
 
+  if (components.length === 0) {
+    return <div>No components found</div>;
+  }
   return <ComponentActionBuilder components={components} />;
 }

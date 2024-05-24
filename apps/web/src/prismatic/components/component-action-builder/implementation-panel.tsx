@@ -2,8 +2,8 @@
 import Combobox from "@/components/common/combobox";
 import LoadingSpinner from "@/components/common/loading-spinner";
 import type { Action, Component, InputField } from "@repo/prismatic-js";
-import { Button } from "@repo/ui";
 import { useState } from "react";
+import ActionForm from "./action-form";
 
 export default function ImplementationPanel({
   component,
@@ -50,17 +50,34 @@ export default function ImplementationPanel({
             Configure the inputs to be used for data requests
           </p>
           <div className="h-1 w-full border-b border-border" />
-          <form className="py-4">
+          <ActionForm
+            fields={selected.inputs.nodes
+              .filter((i) => i !== null && i.type !== "CONNECTION")
+              .map((i: InputField) => {
+                return {
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- skip
+                  defaultValue: i.default ? i.default : "",
+                  key: i.key,
+                  label: i.label,
+                  required: i.required,
+                  type: i.type,
+                };
+              })}
+          />
+          {/* <form className="py-4">
             <ul>
               {selected.inputs.nodes
-                .filter((i) => i !== null)
+                .filter((i) => i !== null && i.type !== "CONNECTION")
                 .map((i: InputField) => {
                   return (
                     <div className="grid gap-y-2 py-2" key={i.key}>
                       <span className="block text-sm font-medium leading-6 text-foreground">
                         {i.label}
                       </span>
-                      <input className="ring-1 ring-border rounded-md p-1" />
+                      <input
+                        className="ring-1 ring-border rounded-md p-1"
+                        value={i.default || i.example || ""}
+                      />
                     </div>
                   );
                 })}
@@ -69,7 +86,7 @@ export default function ImplementationPanel({
               <Button variant="default">Save</Button>
               <Button variant="secondary">Cancel</Button>
             </div>
-          </form>
+          </form> */}
         </div>
       ) : null}
     </div>

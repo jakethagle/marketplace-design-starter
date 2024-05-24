@@ -1,13 +1,12 @@
 "use client";
+
 import type { TabProp } from "@/components/application/example/tabs";
 import TabGroup from "@/components/application/example/tabs";
 import Combobox from "@/components/common/combobox";
 import LoadingSpinner from "@/components/common/loading-spinner";
 import EmbeddediFrame from "@/prismatic/components/embedded-iframe";
-import { CheckBadgeIcon } from "@heroicons/react/20/solid";
 import type { Component, Integration } from "@repo/prismatic-js";
-import { Button } from "@repo/ui";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Implementation from "./implementation-panel";
 
 export default function ComponentActionBuilder({
@@ -17,11 +16,6 @@ export default function ComponentActionBuilder({
   integrations?: Integration[];
 }): JSX.Element {
   const [selected, setSelected] = useState<Component>();
-  useEffect(() => {
-    if (selected) {
-      // todo
-    }
-  }, [selected]);
 
   return (
     <div className="flex flex-col gap-y-4">
@@ -31,7 +25,7 @@ export default function ComponentActionBuilder({
           Choose the external data request to configure
         </p>
         <br />
-        {components.length > 0 ? (
+        {components.length >= 1 ? (
           <Combobox
             label="Available Integrations"
             onChange={(value) => {
@@ -46,7 +40,7 @@ export default function ComponentActionBuilder({
         {selected ? (
           <div className="flex flex-col gap-y-4">
             <div className="flex flex-1 gap-x-2 mt-2">
-              <Button
+              {/* <Button
                 className={`${true ? "!bg-emerald-500" : ""}`}
                 disabled={!selected}
               >
@@ -55,7 +49,7 @@ export default function ComponentActionBuilder({
               </Button>
               <Button className="" variant="outline">
                 Test
-              </Button>
+              </Button> */}
             </div>
             <BuilderTabs component={selected} />
           </div>
@@ -84,7 +78,10 @@ export function BuilderTabs({
     {
       panel: (
         <div className="h-[900px]">
-          <EmbeddediFrame integration="Salesforce" mode="Integration" />
+          <EmbeddediFrame
+            integration="Component Action Builder"
+            mode="Integration"
+          />
         </div>
       ),
       label: "Testing/Logs",

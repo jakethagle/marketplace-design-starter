@@ -3,27 +3,47 @@ import type { Client, Component, Integration } from "../generated";
 export async function getComponents(client: Client): Promise<{
   nodes: Component[];
 }> {
-  const { components } = await client.query({
-    __name: "components",
-    components: {
-      __args: {},
-      nodes: {
-        __scalar: true,
-        actions: {
-          nodes: {
-            __scalar: true,
-            __typename: true,
-            inputs: {
-              nodes: {
-                __scalar: true,
+  let paginate = true;
+  const results: Component[] = [];
+  let cursor: string | null = null;
+  while (paginate) {
+    // eslint-disable-next-line no-await-in-loop -- skip
+    const { components } = await client.query({
+      __name: "components",
+      components: {
+        __args: { after: cursor },
+        pageInfo: {
+          hasNextPage: true,
+          endCursor: true,
+        },
+        nodes: {
+          __scalar: true,
+          actions: {
+            nodes: {
+              __scalar: true,
+              __typename: true,
+              inputs: {
+                nodes: {
+                  __scalar: true,
+                },
               },
             },
           },
         },
       },
-    },
-  });
-  return components as { nodes: Component[] };
+    });
+
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- skip
+    if (components.nodes) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access -- skip
+      results.push(...(components.nodes || []));
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access -- skip
+    paginate = components.pageInfo.hasNextPage || false;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access -- skip
+    cursor = components.pageInfo.endCursor;
+  }
+  return { nodes: results };
 }
 
 export async function getMarketplaceIntegrations(client: Client): Promise<{
