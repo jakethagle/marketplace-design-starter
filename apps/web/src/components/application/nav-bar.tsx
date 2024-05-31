@@ -22,12 +22,12 @@ const navigation = [
     href: "/integrations/marketplace",
     segment: "integrations",
   },
-  { name: "Example", href: "/example", segment: "example" },
-  {
-    name: "Action Builder",
-    href: "/component-action-builder",
-    segment: "component-action-builder",
-  },
+  // { name: "Example", href: "/example", segment: "example" },
+  // {
+  //   name: "Action Builder",
+  //   href: "/component-action-builder",
+  //   segment: "component-action-builder",
+  // },
 ];
 
 export function CustomToggle(): JSX.Element {

@@ -1,4 +1,5 @@
 "use client";
+import marketingConfig from "@/dynamicMarketingConfig.json";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import HeroImage from "./hero-image";
 
@@ -39,7 +40,7 @@ export default function HeroPageSection(): JSX.Element {
           <div className="flex">
             <div className="relative flex items-center gap-x-4 rounded-full px-4 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               <span className="font-semibold text-primary">
-                {"{INTEGRATION}"}is live
+                {marketingConfig.useCaseConnector} is live
               </span>
               <span aria-hidden="true" className="h-4 w-px bg-gray-900/10" />
               <a className="flex items-center gap-x-1" href="/#">
@@ -53,18 +54,17 @@ export default function HeroPageSection(): JSX.Element {
             </div>
           </div>
           <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Unlock your business potential through integration.
+            {marketingConfig.ctaStatement}
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Easily connect your favorite tools and applications through our
-            self-serve marketplace of integrations.
+            {marketingConfig.ctaSubTitle}
           </p>
           <div className="mt-10 flex items-center gap-x-6">
             <a
               className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               href="/#"
             >
-              Get started
+              {marketingConfig.ctaButtonText}
             </a>
             <a
               className="text-sm font-semibold leading-6 text-gray-900"

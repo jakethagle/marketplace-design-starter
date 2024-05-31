@@ -22,7 +22,7 @@ CUSTOMERS_QUERY='{
 
 CUSTOMERS=$(curl ${API_ENDPOINT} -X POST \
     -H "Content-Type: application/json" \
-    -H "Authorization: bearer ${API_KEY}" \
+    -H "Authorization: Bearer ${API_KEY}" \
 --data "$(echo $CUSTOMERS_QUERY)" | jq .data.customers.nodes)
 
 ORG_ID=$(echo $ORG | jq .organization.id | tr -d '"')
