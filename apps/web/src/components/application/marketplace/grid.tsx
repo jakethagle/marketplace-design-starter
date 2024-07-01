@@ -11,11 +11,17 @@ import {
   MinusIcon,
   PlusIcon,
   Squares2X2Icon,
+  Cog8ToothIcon
 } from "@heroicons/react/20/solid";
 import type { Integration } from "@repo/prismatic-js";
 import { Button } from "@repo/ui";
 import Link from "next/link";
+import {useRouter} from "next/navigation";
 import { Fragment } from "react";
+import usePrismaticAuth from "../../../prismatic/hooks/use-prismatic";
+import prismatic from "@prismatic-io/embedded";
+
+
 
 const sortOptions = [
   { name: "Active", href: "#", current: true },
@@ -213,49 +219,69 @@ export function CategoryFilters({
 }
 
 export function Grid({ listings }: { listings: Integration[] }): JSX.Element {
+  const router = useRouter();
+  const { authenticated } = usePrismaticAuth();
+  const handleViewDetails = (id: string) => {
+    router.push(`/integrations/marketplace/${id}`);
+  };
+
+  const deployConfigWizard = (listing: any, authenticated: boolean) => {
+    if (!authenticated) {
+      return;
+    }
+    prismatic.configureInstance({
+      integrationName: listing.name,
+      skipRedirectOnRemove: false,
+      usePopover: true,
+      screenConfiguration: {
+        instance: {
+          hideBackToMarketplace: true
+        },
+        configurationWizard: {
+          triggerDetailsConfiguration: "hidden",
+          isInModal: true,
+        }
+      }
+    })
+  }
+
   return (
-    <div className="lg:col-span-3">
-      <div className="">
-        <div className="lg:mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-          <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-3 sm:gap-y-10 lg:grid-cols-3">
-            {listings.map((listing) => (
-              <Link
-                href={`/integrations/marketplace/${listing.id}`}
-                key={listing.id}
-              >
-                <div className="group relative" key={listing.id}>
-                  <div className="p-4 overflow-hidden rounded-lg bg-gradient-to-b from-primary/5 to-primary/10">
-                    <div className="aspect-h-4 aspect-w-4 mx-auto">
-                      <PrismaticAvatar
-                        avatarUrl={listing.avatarUrl as unknown as string}
-                      />
-                      <div
-                        aria-hidden="true"
-                        className="flex items-end p-4 opacity-0 group-hover:opacity-100"
+    <main className="lg:col-span-3">
+      <div className="lg:mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-3 sm:gap-y-10 lg:grid-cols-3">
+          {listings.map((listing) => (
+            <div className="group relative" key={listing.id}>
+              <div className="p-4 overflow-hidden rounded-lg bg-gradient-to-b from-primary/5 to-primary/10">
+                <div className="aspect-h-4 aspect-w-4 mx-auto">
+                  <PrismaticAvatar avatarUrl={listing.avatarUrl as string} />
+                  <div className="flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100">
+                    <div
+                      className="flex justify-between items-center text-primary-foreground border border-muted-foreground/70 w-full rounded-md bg-primary bg-opacity-80 py-2 text-center text-sm font-medium backdrop-blur backdrop-filter ring ring-inset ring-primary"
                       >
-                        <div className="text-primary-foreground border border-muted-foreground/70 w-full rounded-md bg-primary bg-opacity-80 px-4 py-2 text-center text-sm font-medium backdrop-blur backdrop-filter ring ring-inset ring-primary">
-                          View Integration
-                        </div>
-                      </div>
+                        <span 
+                          className="cursor-pointer font-bold"
+                          onClick={() => handleViewDetails(listing.id)}
+                        >
+                          View Details
+                        </span>
+                        <span className="mx-4">|</span>
+                        <Cog8ToothIcon onClick={() => deployConfigWizard(listing, authenticated)} className="h-6 w-6 cursor-pointer"/>
                     </div>
                   </div>
-                  <div className="mt-4 flex items-center justify-between space-x-8 text-base font-medium ">
-                    <h3>
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {listing.name}
-                    </h3>
-                    <span className="px-2 py-1 text-xs font-medium inline-flex items-center rounded-md bg-primary text-primary-foreground ring-1 ring-inset ring-primary/10">
-                      {listing.category}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-sm ">{listing.description}</p>
                 </div>
-              </Link>
-            ))}
-          </div>
+              </div>
+              <div className="mt-4 flex items-center justify-between space-x-8 text-base font-medium">
+                <h3>{listing.name}</h3>
+                <span className="px-2 py-1 text-xs font-medium inline-flex items-center rounded-md bg-primary text-primary-foreground ring-1 ring-inset ring-primary/10">
+                  {listing.category}
+                </span>
+              </div>
+              <p className="mt-1 text-sm">{listing.description}</p>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
