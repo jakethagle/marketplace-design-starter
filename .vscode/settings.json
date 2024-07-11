@@ -2,5 +2,7 @@
   "eslint.workingDirectories": [
     { "pattern": "./apps/*/" },
     { "pattern": "./packages/*/" }
-  ]
+  ],
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.suggest.completeFunctionCalls": true
 }

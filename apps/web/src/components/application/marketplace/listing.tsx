@@ -2,12 +2,8 @@
 import { classNames } from "@/lib/utils";
 import { PrismaticAvatar } from "@/prismatic/components/prismatic-avatar";
 import { Tab } from "@headlessui/react";
-// import { CheckCircleIcon } from "@heroicons/react/24/solid";
-import { Button } from "@repo/ui";
 import Link from "next/link";
 import { Fragment } from "react";
-import usePrismaticAuth from "../../../prismatic/hooks/use-prismatic";
-import prismatic from "@prismatic-io/embedded";
 
 interface MarketplaceListing {
   key: string;
@@ -74,11 +70,7 @@ export function ListingCoverImage({
     </div>
   );
 }
-export function ChangeLog({
-  changeLog,
-}: {
-  changeLog: string;
-}): JSX.Element {
+export function ChangeLog({ changeLog }: { changeLog: string }): JSX.Element {
   return (
     <div
       className="prose prose-sm max-w-none text-muted-foreground prose-headings:text-foreground"
@@ -86,11 +78,11 @@ export function ChangeLog({
     />
   );
 }
-export function FAQ({
+export function Faq({
   faqs,
 }: {
   faqs: { question: string; answer: string }[];
-}) {
+}): JSX.Element {
   return (
     <>
       <h3 className="sr-only">Frequently Asked Questions</h3>
@@ -118,34 +110,27 @@ export function DetailTabs({
   const _faqs = [
     {
       question: "Does the data sync in real time?",
-      answer:
-        `Yes, our robust ${item.name} integration automatically synchronizes data between ${item.name} and our platform to ensure consistent information across your tech stack, including contacts, leads, opportunities, and custom objects.`,
+      answer: `Yes, our robust ${item.name} integration automatically synchronizes data between ${item.name} and our platform to ensure consistent information across your tech stack, including contacts, leads, opportunities, and custom objects.`,
     },
     {
       question: `Can I customize workflows within the ${item.name} integration?`,
-      answer:
-        `Absolutely! Our integration allows you to create custom workflows to automate repetitive tasks. You can trigger actions in ${item.name} based on events in other applications, and vice versa, to enhance productivity and reduce manual errors.`,
+      answer: `Absolutely! Our integration allows you to create custom workflows to automate repetitive tasks. You can trigger actions in ${item.name} based on events in other applications, and vice versa, to enhance productivity and reduce manual errors.`,
     },
     {
       question: `Is there support for analytics and reporting?`,
-      answer:
-        `Yes, our integration extends to analytics and reporting. By integrating ${item.name} data with your business intelligence tools, you can generate comprehensive reports and dashboards for informed decision-making.`,
+      answer: `Yes, our integration extends to analytics and reporting. By integrating ${item.name} data with your business intelligence tools, you can generate comprehensive reports and dashboards for informed decision-making.`,
     },
     {
       question: `How does the integration handle data security and compliance?`,
-      answer:
-        `Security and compliance are top priorities. Our integration adheres to the highest standards with end-to-end encryption and is compliant with GDPR, HIPAA, and other regulatory requirements to safeguard sensitive data.`,
+      answer: `Security and compliance are top priorities. Our integration adheres to the highest standards with end-to-end encryption and is compliant with GDPR, HIPAA, and other regulatory requirements to safeguard sensitive data.`,
     },
     {
       question: `Is the ${item.name} integration scalable?`,
-      answer:
-        `Definitely. Our integration is designed to be fully scalable, accommodating the growth of your business and evolving requirements with ease.`,
+      answer: `Definitely. Our integration is designed to be fully scalable, accommodating the growth of your business and evolving requirements with ease.`,
     },
     {
-      question:
-        `What type of customer support is available for this integration?`,
-      answer:
-        `We provide 24/7 dedicated customer support to assist with any issues or queries you may have. Our team is committed to ensuring a smooth experience with our integration.`,
+      question: `What type of customer support is available for this integration?`,
+      answer: `We provide 24/7 dedicated customer support to assist with any issues or queries you may have. Our team is committed to ensuring a smooth experience with our integration.`,
     },
   ];
   return (
@@ -163,7 +148,7 @@ export function DetailTabs({
                 )
               }
             >
-              FAQ
+              Change Log
             </Tab>
             <Tab
               className={({ selected }) =>
@@ -175,18 +160,15 @@ export function DetailTabs({
                 )
               }
             >
-              Change Log
+              FAQ
             </Tab>
           </Tab.List>
         </div>
         <Tab.Panels as={Fragment}>
-          <Tab.Panel className="text-sm ">
-            <FAQ faqs={_faqs} />
-          </Tab.Panel>
-
           <Tab.Panel className="pt-10">
             <h3 className="sr-only">Changelog</h3>
-            <ChangeLog changeLog={`
+            <ChangeLog
+              changeLog={`
     <h2>Changelog Summary - ${item.name} Integration v6 (January 1, 2024)</h2>
 
     <h3>New Features:</h3>
@@ -221,7 +203,11 @@ export function DetailTabs({
         <li>Updated guides and API docs.</li>
         <li>Expanded customer support hours and self-service portal.</li>
     </ul>
-  `}/>
+  `}
+            />
+          </Tab.Panel>
+          <Tab.Panel className="text-sm ">
+            <Faq faqs={_faqs} />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
@@ -229,16 +215,16 @@ export function DetailTabs({
   );
 }
 
-export default function Listing({ item }: ListingProps) {
+export default function Listing({ item }: ListingProps): JSX.Element {
   return (
     <div className="mx-auto max-w-2xl lg:max-w-none">
       <div className="lg:grid lg:grid-cols-7 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
-        <div className="lg:col-span-4 lg:row-end-1 max-w-2xl mx-auto lg:max-w-none lg:mx-0">
+        {/* <div className="lg:col-span-4 lg:row-end-1 max-w-2xl mx-auto lg:max-w-none lg:mx-0">
           <ListingCoverImage item={item} />
-        </div>
+        </div> */}
         <ListingDetails item={item} />
         {/* Change Log/FAQ Tabs */}
-        <DetailTabs item={item}/>
+        <DetailTabs item={item} />
       </div>
       {/* Related Integrations*/}
       <RelatedListings listings={_relatedListings} />
@@ -250,7 +236,7 @@ export function RelatedListings({
   listings,
 }: {
   listings: RelatedMarketplaceListing[];
-}) {
+}): JSX.Element {
   return (
     <div className="mt-24 sm:mt-32">
       <div className="flex items-center justify-between space-x-4">
@@ -292,27 +278,11 @@ export function RelatedListings({
     </div>
   );
 }
-export function ListingDetails({ item }: { item: MarketplaceListing }) {
-  const { authenticated } = usePrismaticAuth();
-  const deployConfigWizard = (name: string, authenticated: boolean) => {
-    if (!authenticated) {
-      return;
-    }
-    prismatic.configureInstance({
-      integrationName: name,
-      skipRedirectOnRemove: false,
-      usePopover: true,
-      screenConfiguration: {
-        instance: {
-          hideBackToMarketplace: true
-        },
-        configurationWizard: {
-          triggerDetailsConfiguration: "hidden",
-          isInModal: true,
-        }
-      }
-    })
-  }
+export function ListingDetails({
+  item,
+}: {
+  item: MarketplaceListing;
+}): JSX.Element {
   return (
     <div className="mt-14 sm:mt-16 lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0">
       <div className="flex flex-col-reverse">
@@ -328,17 +298,6 @@ export function ListingDetails({ item }: { item: MarketplaceListing }) {
       </div>
 
       <p className="mt-6 text-muted-foreground">{item.description}</p>
-
-      <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-        {/* <Link href={`/integrations/marketplace/${item.key}/settings`}> */}
-          <Button onClick={() => deployConfigWizard(item.name, authenticated)}className="w-full">Configuration</Button>
-        {/* </Link> */}
-        <Link href={`/integrations/marketplace/${item.key}/#`}>
-          {/* <Button className="group w-full " variant="outline">
-            <CheckCircleIcon className="h-5 w-5 mr-2 text-primary" /> Connected
-          </Button> */}
-        </Link>
-      </div>
 
       <div className="mt-10 border-t  pt-10">
         <h3 className="text-sm font-medium ">Highlights</h3>
@@ -357,7 +316,7 @@ export function ListingDetails({ item }: { item: MarketplaceListing }) {
           {`${item.name} Integration v6 (January 1, 2024) - New Features, Improvements, Bug Fixes, Security and API Updates, Documentation & Support.`}{" "}
           <a
             className="font-medium text-primary hover:text-primary/70"
-            href={"#"}
+            href={"/#"}
           >
             Read full changelog
           </a>

@@ -3,7 +3,7 @@ import { type ClientOptions } from "./generated/runtime";
 
 export * from "./generated/schema";
 export * from "./generated/types";
-
+export { type Client } from "./generated";
 interface PrismaticClientOptions extends ClientOptions {
   accessToken: string;
 }

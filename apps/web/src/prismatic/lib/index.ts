@@ -1,11 +1,38 @@
 import prismaticConfig from "@/prismatic/constants/config";
-import type { Component, Integration, User } from "@repo/prismatic-js";
+import type {
+  Component,
+  Integration,
+  User,
+  Instance,
+} from "@repo/prismatic-js";
 import {
   createPrismaticClient,
   getAccessToken,
   getMarketplaceUserToken,
   isUser,
 } from "@repo/prismatic-js";
+import { InstanceService, IntegrationService, Role } from "@repo/services";
+
+export async function getInstances(): Promise<{ nodes: Instance[] }> {
+  const { client } = await prismaticMarketplace();
+  const { instances } = await client.query({
+    __name: "instances",
+    instances: {
+      __args: {},
+      nodes: {
+        __scalar: true,
+        __typename: true,
+        flowConfigs: {
+          nodes: {
+            __scalar: true,
+            __typename: true,
+          },
+        },
+      },
+    },
+  });
+  return instances as { nodes: Instance[] };
+}
 
 export async function getComponents(): Promise<{
   nodes: Component[];
@@ -69,6 +96,7 @@ export async function getMarketplaceIntegrations(): Promise<{
         description: true,
         documentation: true,
         id: true,
+        versionNumber: true,
         name: true,
         updatedAt: true,
         avatarUrl: true,
@@ -132,3 +160,43 @@ export async function prismaticMarketplace(): Promise<PrismaticClient> {
     },
   };
 }
+let services: { instance: InstanceService; marketplace: IntegrationService };
+function setService(
+  service: string,
+  value: InstanceService | IntegrationService,
+): void {
+  services = { ...services, [service]: value };
+}
+
+export const instanceService = (): InstanceService => {
+  setService(
+    "instance",
+    new InstanceService({
+      auth: {
+        customerId: prismaticConfig.customer || "",
+        role: Role.Admin,
+        userId: prismaticConfig.sub || "",
+      },
+    }),
+  );
+  return services.instance;
+};
+
+export const marketplaceService = (): IntegrationService => {
+  setService(
+    "marketplace",
+    new IntegrationService({
+      auth: {
+        customerId: prismaticConfig.customer || "",
+        role: Role.Admin,
+        userId: prismaticConfig.sub || "",
+      },
+    }),
+  );
+  return services.marketplace;
+};
+
+export const prismaticServices = {
+  instanceService: instanceService(),
+  marketplaceService: marketplaceService(),
+};

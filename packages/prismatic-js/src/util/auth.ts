@@ -1,4 +1,6 @@
 import { sign } from "jsonwebtoken";
+import { Client } from "../generated";
+import { createPrismaticClient } from "..";
 
 interface TokenResponse {
   access_token: string;
@@ -31,7 +33,9 @@ export async function getAccessToken(
  * @returns A promise that resolves when the token is successfully validated.
  * @throws An error if the token validation fails.
  */
-async function validateMarketplaceUserToken(token: string): Promise<void> {
+export async function validateMarketplaceUserToken(
+  token: string,
+): Promise<void> {
   const response = await fetch(
     "https://app.prismatic.io/embedded/authenticate",
     {
@@ -48,6 +52,15 @@ async function validateMarketplaceUserToken(token: string): Promise<void> {
   }
 }
 
+export async function getAuthenticatedClient(
+  params: MarketplaceTokenParams,
+  signingKey: string,
+): Promise<{ client: Client; token: string }> {
+  const token = signToken(params, signingKey);
+  await validateMarketplaceUserToken(token);
+  const client = createPrismaticClient({ accessToken: token });
+  return { client, token };
+}
 /**
  * Generates a marketplace user token based on the provided parameters and signing key.
  * @param params - The parameters used to generate the token.

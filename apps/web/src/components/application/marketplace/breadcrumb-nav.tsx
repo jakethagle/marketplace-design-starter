@@ -2,7 +2,13 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
-export default function BreadcrumbNav({ slug }: { slug: string }): JSX.Element {
+export default function BreadcrumbNav({
+  label,
+  id,
+}: {
+  label: string;
+  id: string;
+}): JSX.Element {
   return (
     <div className="relative ">
       <div className="">
@@ -41,9 +47,9 @@ export default function BreadcrumbNav({ slug }: { slug: string }): JSX.Element {
                 />
                 <Link
                   className="text-sm font-medium hover:underline capitalize"
-                  href={`/integrations/marketplace/${slug}`}
+                  href={`/integrations/marketplace/${id}`}
                 >
-                  View Details
+                  {label}
                 </Link>
               </div>
             </li>

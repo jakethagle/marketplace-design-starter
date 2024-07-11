@@ -9,5 +9,9 @@ module.exports = {
     "<rootDir>/node_modules",
     "<rootDir>/dist",
   ],
+  moduleNameMapper: {
+    "@/(.*)": "<rootDir>/src/$1",
+  },
   preset: "ts-jest",
+  setupFiles: ["<rootDir>/setup-config.ts"],
 };
