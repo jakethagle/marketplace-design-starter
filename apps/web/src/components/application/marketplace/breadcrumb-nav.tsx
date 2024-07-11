@@ -43,7 +43,7 @@ export default function BreadcrumbNav({ slug }: { slug: string }): JSX.Element {
                   className="text-sm font-medium hover:underline capitalize"
                   href={`/integrations/marketplace/${slug}`}
                 >
-                  {slug}
+                  View Details
                 </Link>
               </div>
             </li>
