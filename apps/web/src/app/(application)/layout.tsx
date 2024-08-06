@@ -1,7 +1,9 @@
-import Navbar from "@/components/application/nav-bar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Providers } from "@/components/application/providers";
+
 import "../globals.css";
+import MultiLayout from "@/components/common/layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,11 +19,12 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html className="h-screen" lang="en" suppressHydrationWarning>
-      <body className={`h-full antialiased ${inter.className}`}>
-        <nav className="border-b border-border">
-          <Navbar />
-        </nav>
-        <main className="h-[calc(100%_-_3.75rem)]">{children}</main>
+      <body
+        className={`h-screen max-h-screen overflow-hidden antialiased ${inter.className}`}
+      >
+        <Providers>
+          <MultiLayout>{children}</MultiLayout>
+        </Providers>
       </body>
     </html>
   );

@@ -10,7 +10,7 @@ export default function Container({
   return (
     <div
       className={classNames(
-        "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8",
+        "mx-auto max-w-7xl px-6 sm:px-8 lg:px-10",
         className ? className : "",
       )}
     >

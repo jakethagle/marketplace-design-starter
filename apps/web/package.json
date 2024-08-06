@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@headlessui/tailwindcss": "^0.2.1",
     "@heroicons/react": "^2.1.1",
-    "@prismatic-io/embedded": "^2.4.0",
+    "@prismatic-io/embedded": "latest",
+    "@repo/services": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tanstack/react-form": "^0.19.4",
@@ -22,6 +24,7 @@
     "next": "^14.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.5",
     "zod": "^3.23.4"
   },
   "devDependencies": {

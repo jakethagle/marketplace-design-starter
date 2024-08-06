@@ -28,13 +28,8 @@ const navigation = [
     icon: WrenchScrewdriverIcon,
   },
   {
-    name: "Integrations",
+    name: "Marketplace",
     href: "/integrations/marketplace",
-    icon: SquaresPlusIcon,
-  },
-  {
-    name: "Automations",
-    href: "/integrations/automations",
     icon: SquaresPlusIcon,
   },
   {
@@ -48,7 +43,7 @@ export function IntegrationHubNav(): JSX.Element {
 
   return (
     <nav className="flex-none px-4 sm:px-6">
-      <ul className="flex gap-x-3 gap-y-1 whitespace-nowrap xl:flex-col">
+      <ul className="flex gap-x-3 gap-y-1 whitespace-nowrap 2xl:flex-col">
         {navigation.map((item) => (
           <li key={item.name}>
             <a

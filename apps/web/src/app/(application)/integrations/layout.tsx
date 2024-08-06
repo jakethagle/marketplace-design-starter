@@ -1,19 +1,40 @@
-import { IntegrationHubNav } from "@/components/application/integration-hub-nav";
+import TabGroup, {
+  type TabProp,
+} from "@/components/application/integration-tabs";
 
 export default function Layout({
-  children,
+  dashboard,
+  marketplace,
+  designer,
+  logs,
 }: {
-  children: JSX.Element;
-}): JSX.Element {
-  return (
-    <div className="h-full px-0 xl:flex">
-      <aside className="flex overflow-x-auto py-4 xl:block xl:flex-none xl:py-12 xl:w-72 xl:drop-shadow-sm xl:bg-background xl:h-full">
-        <div className="hidden xl:block text-base capitalize font-semibold text-muted-foreground pb-4 pl-6">
-          <p className="text-xl">Integration Hub</p>
-        </div>
-        <IntegrationHubNav />
-      </aside>
-      <main className="h-full w-full">{children}</main>
-    </div>
-  );
+  dashboard: React.ReactNode;
+  marketplace: React.ReactNode;
+  logs: React.ReactNode;
+  designer: React.ReactNode;
+}): React.ReactNode {
+  const _tabs: TabProp[] = [
+    {
+      panel: <>{marketplace}</>,
+      label: "Marketplace",
+      key: "marketplace",
+    },
+    {
+      panel: <>{dashboard}</>,
+      label: "Dashboard",
+      key: "dashboard",
+    },
+    {
+      panel: <>{designer}</>,
+      label: "Low-Code Designer",
+      key: "designer",
+    },
+    {
+      panel: <>{logs}</>,
+      label: "Logs",
+      key: "logs",
+    },
+  ];
+
+  return <TabGroup tabs={_tabs} />;
 }

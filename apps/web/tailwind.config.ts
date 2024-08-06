@@ -12,6 +12,7 @@ const config: Pick<Config, "content" | "presets" | "plugins"> = {
   presets: [sharedConfig],
   plugins: [
     require("@tailwindcss/aspect-ratio"),
+    require("@headlessui/tailwindcss"),
     require("@tailwindcss/typography"),
   ],
 };
