@@ -18,6 +18,16 @@ export async function getComponents(client: Client): Promise<{
         },
         nodes: {
           __scalar: true,
+          connections: {
+            nodes: {
+              __scalar: true,
+              inputs: {
+                nodes: {
+                  __scalar: true,
+                },
+              },
+            },
+          },
           actions: {
             nodes: {
               __scalar: true,

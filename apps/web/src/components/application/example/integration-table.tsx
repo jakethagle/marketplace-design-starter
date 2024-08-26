@@ -1,24 +1,20 @@
 "use client";
 import LoadingSpinner from "@/components/common/loading-spinner";
 import { classNames } from "@/lib/utils";
-import type { Instance } from "@repo/prismatic-js";
 import { Button } from "@repo/ui";
 import { useState } from "react";
 import type { Record } from "../../../app/(application)/example/page";
 
 export default function IntegrationTable({
-  records,
-  instance,
+  records, // instance,
 }: {
   records: Record[];
-  instance: Partial<Instance>;
+  // instance: Partial<Instance>;
 }): JSX.Element {
-  const exportFlow = instance.flowConfigs?.nodes.find(
-    (node) => node?.flow.name === "Export Invoice to Quickbooks",
-  );
+  const exportFlow = "";
   const [exporting, setExporting] = useState<number | undefined>();
   return (
-    <div className="py-8">
+    <div>
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto text-foreground">
           <h1 className="text-base font-semibold leading-6 ">
@@ -115,7 +111,7 @@ export default function IntegrationTable({
                   <Button
                     onClick={() => {
                       setExporting(row.id);
-                      fetch(`${exportFlow?.webhookUrl}`, {
+                      fetch(`${exportFlow}`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ ...row }),

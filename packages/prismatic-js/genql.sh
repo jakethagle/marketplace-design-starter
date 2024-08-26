@@ -1,1 +1,1 @@
-pnpx @genql/cli --endpoint https://app.prismatic.io/api --output ./generated -H 'Authorization: Bearer $REFRESH_TOKEN'
+pnpx @genql/cli --endpoint https://app.prismatic.io/api --output ./generated -H "Authorization: Bearer $(prism me:token)"

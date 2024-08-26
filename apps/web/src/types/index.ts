@@ -7,3 +7,13 @@ export interface MarketplaceFilter {
   label: string;
   options: FilterOption[];
 }
+
+export interface Record {
+  id: number;
+  recordNumber: string;
+  title: string;
+  description?: string;
+  status?: "open" | "in progress" | "closed";
+  email?: string;
+}
+export type FormData = Partial<Record>;

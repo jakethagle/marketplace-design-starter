@@ -1,7 +1,7 @@
 "use client";
 import { Role } from "@/prismatic/types";
 
-export function getRoleFromCookie(): Role | undefined {
+export function getRoleFromCookie(): Role {
   if (!document.cookie) {
     return Role.Admin;
   }

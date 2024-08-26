@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import LoadingSpinner from "../../components/common/loading-spinner";
-import usePrismaticAuth from "../hooks/use-prismatic";
+"use client";
+import { useEffect, useRef, useState } from "react";
+import LoadingSpinner from "@/components/common/loading-spinner";
+import usePrismaticAuth from "@/prismatic/hooks/use-prismatic";
 
 async function fetchImage(
   avatarUrl: unknown,
@@ -23,8 +24,10 @@ async function fetchImage(
  * Images are fetched from a presigned S3 URL.
  */
 export function PrismaticAvatar({ avatarUrl }: { avatarUrl: unknown }) {
-  const [src, setSrc] = useState("");
-  const { authenticated, token } = usePrismaticAuth();
+  const imageRef = useRef<string>();
+  const [src, setSrc] = useState(imageRef.current);
+  const { authenticated, token, loading } = usePrismaticAuth();
+
   useEffect(() => {
     if (avatarUrl && authenticated && token) {
       void fetchImage(avatarUrl, token)
@@ -37,7 +40,7 @@ export function PrismaticAvatar({ avatarUrl }: { avatarUrl: unknown }) {
           console.error(error);
         });
     }
-  }, [authenticated, avatarUrl, token]);
+  }, [authenticated, avatarUrl, token, loading]);
 
   return src ? (
     <img alt={src} className="object-contain object-center" src={src} />

@@ -1,11 +1,9 @@
-import IntegrationTable from "@/components/application/example/integration-table";
 import ExamplePageHeader from "@/components/application/example/page-header";
 import type { TabProp } from "@/components/application/example/tabs";
 import TabGroup from "@/components/application/example/tabs";
 import LoadingSpinner from "@/components/common/loading-spinner";
 import { prismaticMarketplace } from "@/prismatic/lib";
 import type { Instance } from "@repo/prismatic-js";
-import { Suspense } from "react";
 
 export interface Record {
   id: number;
@@ -16,26 +14,26 @@ export interface Record {
   isCurrent: boolean;
 }
 
-export function getRecords(): Record[] {
-  return [
-    {
-      id: 1,
-      name: "Invoice-13456",
-      status: "Awaiting Payment",
-      updated: "7 Minutes Ago",
-      message: "",
-      isCurrent: false,
-    },
-    {
-      id: 2,
-      name: "Invoice-13457",
-      status: "Paid",
-      updated: "7 Minutes Ago",
-      message: "",
-      isCurrent: false,
-    },
-  ];
-}
+// function getRecords(): Record[] {
+//   return [
+//     {
+//       id: 1,
+//       name: "Invoice-13456",
+//       status: "Awaiting Payment",
+//       updated: "7 Minutes Ago",
+//       message: "",
+//       isCurrent: false,
+//     },
+//     {
+//       id: 2,
+//       name: "Invoice-13457",
+//       status: "Paid",
+//       updated: "7 Minutes Ago",
+//       message: "",
+//       isCurrent: false,
+//     },
+//   ];
+// }
 async function getMarketplaceIntegration(
   integration: string,
 ): Promise<{ nodes?: Instance[] } | undefined> {
@@ -72,7 +70,7 @@ export default async function ExamplePage({
   searchParams,
 }: {
   searchParams: { integration: string | undefined };
-}) {
+}): Promise<JSX.Element> {
   const integration = searchParams.integration || "Salesforce";
   const response = await getMarketplaceIntegration(integration);
 
@@ -80,16 +78,15 @@ export default async function ExamplePage({
   if (response?.nodes) {
     instance = response.nodes[0];
   }
-  const records = getRecords();
   if (!instance) {
     return <LoadingSpinner />;
   }
   const _tabs: TabProp[] = [
-    {
-      panel: <IntegrationTable instance={instance} records={records} />,
-      label: "Import/Export",
-      key: "import-export",
-    },
+    // {
+    //   // panel: <IntegrationTable instance={instance} records={records} />,
+    //   label: "Import/Export",
+    //   key: "import-export",
+    // },
     {
       panel: <div>Field Mappings</div>,
       label: "Field Mappings",
@@ -98,11 +95,11 @@ export default async function ExamplePage({
   ];
 
   return (
-    <Suspense fallback={<LoadingSpinner />}>
+    <>
       <div className="pb-10">
         <ExamplePageHeader integration={integration} />
       </div>
       <TabGroup tabs={_tabs} />
-    </Suspense>
+    </>
   );
 }

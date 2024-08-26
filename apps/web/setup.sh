@@ -27,9 +27,20 @@ CUSTOMERS=$(curl ${API_ENDPOINT} -X POST \
 
 ORG_ID=$(echo $ORG | jq .organization.id | tr -d '"')
 ORG_NAME=$(echo $ORG | jq .organization.name | tr -d '"')
+SIGNING_KEY=$(prism organization:signing-keys:generate);
 
 OUTFILE=src/prismatic/constants/config.ts
 BT="\`"
+
+rm -f .env.local
+
+(
+cat <<EOF
+PRISMATIC_ORGANIZATION_ID='$ORG_ID'
+PRISMATIC_SIGNING_KEY='$SIGNING_KEY'
+EOF
+) > .env.local
+
 # -----------------------------------------------------------
 # 'Here document containing the body of the generated script.
 (
@@ -45,7 +56,7 @@ import { PrismaticConfig } from '../types';
  * Replace this with a value a signing key you get from https://app.prismatic.io/settings/embedded/
  */
 
-const signingKey = $BT$(prism organization:signing-keys:generate)$BT;
+const signingKey = $BT$SIGNING_KEY$BT
 
 const config: PrismaticConfig = {
   refreshToken: '$(prism me:token --type refresh)',
