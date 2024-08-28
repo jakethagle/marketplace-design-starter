@@ -106,7 +106,7 @@ export default function MultiLayout({
       </Dialog>
 
       {/* Static sidebar for desktop */}
-      <div className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-50 lg:block lg:w-20  lg:bg-primary/90 lg:pb-2">
+      <div className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-50 lg:block lg:w-20  lg:bg-background lg:pb-2 lg:drop-shadow-xl">
         <div className="flex h-16 shrink-0 items-center justify-center">
           <img alt="" className="h-9 auto " src="/favicon.ico" />
         </div>
@@ -124,7 +124,7 @@ export default function MultiLayout({
                     selected.includes(item.href.split("/")[1]) ||
                       (item.href === "/" && selected.length === 0)
                       ? "bg-primary text-primary-foreground"
-                      : "text-primary-foreground/80 hover:bg-primary/80 hover:text-primary-foreground",
+                      : "text-black-foreground/80 hover:bg-primary/80 hover:text-primary-foreground",
                     "group flex gap-x-3 rounded-md p-3 text-sm font-semibold leading-6 ",
                   )}
                 >
